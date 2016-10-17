@@ -31,7 +31,8 @@ public final class DefaultIntro extends BaseIntro
 
         showSkipButton(false);
 
-        setSeparatorColor(Color.parseColor("#000000"));
+        //setSeparatorColor(Color.parseColor("#000000"));
+
 
 
 

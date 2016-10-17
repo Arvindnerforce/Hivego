@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Hivego</string>
     <string name="term_condition">By signing up.I agree to Hivego Terms of services Privacy Policy and Refund Policy</string>
+    <string name="no_service">We are not available in your city currently. But we will be here soon. Promise! Keep the app installed for notification:)</string>
 </resources>
