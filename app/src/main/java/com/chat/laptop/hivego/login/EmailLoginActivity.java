@@ -5,6 +5,8 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -55,6 +57,7 @@ public class EmailLoginActivity extends AppCompatActivity {
 
                 Intent ragister = new Intent(EmailLoginActivity.this, RegistrationActivity.class);
                 startActivity(ragister);
+                overridePendingTransition(R.anim.enter, R.anim.exit);
 
             }
         });
@@ -85,5 +88,27 @@ public class EmailLoginActivity extends AppCompatActivity {
         haveAccount_txt.setTypeface(tf);
         resetButton.setTypeface(tf);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.user, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+
+            case android.R.id.home:
+                finish();
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

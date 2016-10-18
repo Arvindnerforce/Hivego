@@ -1,5 +1,20 @@
 <resources>
     <string name="app_name">Hivego</string>
-    <string name="term_condition">By signing up.I agree to Hivego Terms of services Privacy Policy and Refund Policy</string>
+    <string name="done">Done</string>
+    <string name="search">Search a items...</string>
+    <string name="profile">Profile</string>
+    <string name="term_condition">By signing up.I agree to Hivego<font color="#FF2D55">Terms of services</font>, <font color="#FF2D55">Privacy Policy</font> and <font color="#FF2D55
+    ">Refund Policy</font></string>
     <string name="no_service">We are not available in your city currently. But we will be here soon. Promise! Keep the app installed for notification:)</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="title_activity_nav">Nav</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

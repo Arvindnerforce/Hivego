@@ -2,6 +2,8 @@ package com.chat.laptop.hivego.services;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +43,6 @@ public class MenServicesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         viewHolder = new MenServicesHolder(view);
 
 
-
         return viewHolder;
     }
 
@@ -51,8 +52,13 @@ public class MenServicesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         MenServicesHolder homeHolder = (MenServicesHolder) holder;
 
-        homeHolder.salon_name.setText(itemList.get(position).title.toString());
-        
+        homeHolder.salon_name.setText(itemList.get(position).price.toString());
+
+
+        Resources res = context.getResources();
+        int resID = res.getIdentifier(itemList.get(position).image.toString() , "drawable", context.getPackageName());
+        Drawable drawable = res.getDrawable(resID);
+        homeHolder.men_image.setImageDrawable(drawable);
 
     }
 

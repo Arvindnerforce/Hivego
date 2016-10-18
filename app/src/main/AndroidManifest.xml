@@ -8,13 +8,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login.LoginActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="MainActivity" />
+
+        <activity android:name=".splace.SplaceScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.EmailLoginActivity" />
         <activity android:name=".registration.RegistrationActivity" />
         <activity android:name=".confirm_details.ConfirmActivity" />
@@ -24,7 +29,12 @@
         <activity android:name=".salon.NearestSalonActivity" />
         <activity android:name=".unavailable.UnavailableActivity" />
         <activity android:name=".salon.SalonListActivity" />
-        <activity android:name=".services.MenServicesActivity"></activity>
+        <activity android:name=".services.MenServicesActivity" />
+        <activity android:name=".dashboard.DashboardActivity" />
+        <activity
+            android:name=".dashboard.navigation.Nav"
+            android:label="@string/title_activity_nav"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -5,6 +5,8 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -44,8 +46,9 @@ public class ConfirmActivity extends AppCompatActivity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent otp = new Intent(ConfirmActivity.this, NearestSalonActivity.class);
+                Intent otp = new Intent(ConfirmActivity.this, TutorialActivity.class);
                 startActivity(otp);
+                overridePendingTransition(R.anim.enter, R.anim.exit);
             }
         });
     }
@@ -74,5 +77,30 @@ public class ConfirmActivity extends AppCompatActivity {
         titleTxt.setTypeface(tf);
         confirmButton.setTypeface(tf);
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.user, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+
+            case android.R.id.home:
+                finish();
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
 }

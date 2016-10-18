@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chat.laptop.hivego.R;
+import com.chat.laptop.hivego.dashboard.DashboardActivity;
 import com.chat.laptop.hivego.services.MenServicesActivity;
 import com.chat.laptop.hivego.tutorial.ViewPagerAdapter;
 import com.chat.laptop.hivego.unavailable.UnavailableActivity;
@@ -64,12 +67,22 @@ public class NearestSalonActivity extends AppCompatActivity implements ViewPager
 
         salonNametxt = (TextView) findViewById(R.id.salonNametxt);
 
+        showAllButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent show_all = new Intent(NearestSalonActivity.this, DashboardActivity.class);
+                startActivity(show_all);
+                overridePendingTransition(R.anim.enter, R.anim.exit);
+            }
+        });
+
         continueButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view) {
                 Intent otp = new Intent(NearestSalonActivity.this, MenServicesActivity.class);
                 startActivity(otp);
+                overridePendingTransition(R.anim.enter, R.anim.exit);
             }
         });
     }
@@ -169,7 +182,29 @@ public class NearestSalonActivity extends AppCompatActivity implements ViewPager
         showAllButton.setTypeface(tf);
         salonNametxt.setTypeface(tf);
 
-
-
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.user, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+
+            case android.R.id.home:
+                finish();
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }

@@ -126,11 +126,11 @@
             android:layout_weight="6"
             android:layout_height="wrap_content"
             android:text="CONTINUE"
-            android:background="@drawable/iteninary_editext_border"
             android:padding="12dp"
-            android:textColor="@color/colorPrimary"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
+            android:textColor="@drawable/button_text_color"
+            android:background="@drawable/button_selector"
             />
 
 

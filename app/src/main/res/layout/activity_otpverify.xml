@@ -144,8 +144,8 @@
                 android:layout_height="35dp"
                 android:padding="10dp"
                 android:text="RETRY"
-                android:textColor="@color/colorPrimary"
-                android:background="@drawable/iteninary_editext_border"
+                android:textColor="@drawable/button_text_color"
+                android:background="@drawable/button_selector"
                 />
 
         </LinearLayout>
