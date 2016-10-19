@@ -1,28 +1,25 @@
 package com.chat.laptop.hivego.salon;
 
+
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import android.support.v4.app.Fragment;
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.dashboard.DashboardActivity;
 import com.chat.laptop.hivego.services.MenServicesActivity;
 import com.chat.laptop.hivego.tutorial.ViewPagerAdapter;
-import com.chat.laptop.hivego.unavailable.UnavailableActivity;
 
 
-public class NearestSalonActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, View.OnClickListener{
+public class NearestSalonFragment extends Fragment implements ViewPager.OnPageChangeListener, View.OnClickListener{
 
 
     private ViewPager intro_images;
@@ -42,59 +39,60 @@ public class NearestSalonActivity extends AppCompatActivity implements ViewPager
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_nearest_salon, container, false);
 
-        super.onCreate(savedInstanceState);
+       // setuptoolbar(view);
 
-        setContentView(R.layout.activity_nearest_salon);
-
-        setuptoolbar();
-
-        setup_layout();
-        setReference();
+        setup_layout(view);
+        setReference(view);
         setup_font();
 
-
+        return view;
     }
 
-    private void setup_layout()
+    private void setup_layout(View view)
     {
 
-        continueButton = (Button) findViewById(R.id.continueButton);
+        continueButton = (Button) view.findViewById(R.id.continueButton);
 
-        showAllButton = (Button) findViewById(R.id.showAllButton);
+        showAllButton = (Button) view.findViewById(R.id.showAllButton);
 
-        salonNametxt = (TextView) findViewById(R.id.salonNametxt);
+        salonNametxt = (TextView) view.findViewById(R.id.salonNametxt);
 
         showAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent show_all = new Intent(NearestSalonActivity.this, DashboardActivity.class);
-                startActivity(show_all);
-                overridePendingTransition(R.anim.enter, R.anim.exit);
+                SalonListFragment salonListFragment = new SalonListFragment();
+                android.support.v4.app.FragmentTransaction search_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                search_fragmentTransaction.replace(R.id.frame, salonListFragment);
+                search_fragmentTransaction.addToBackStack(null);
+                search_fragmentTransaction.commit();
             }
         });
 
-        continueButton.setOnClickListener(new View.OnClickListener()
-        {
+        continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent otp = new Intent(NearestSalonActivity.this, MenServicesActivity.class);
-                startActivity(otp);
-                overridePendingTransition(R.anim.enter, R.anim.exit);
+                SalonListFragment salonListFragment = new SalonListFragment();
+                android.support.v4.app.FragmentTransaction search_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                search_fragmentTransaction.replace(R.id.frame, salonListFragment);
+                search_fragmentTransaction.addToBackStack(null);
+                search_fragmentTransaction.commit();
             }
         });
     }
 
 
-    public void setReference() {
+    public void setReference(View view) {
 
-        intro_images = (ViewPager) findViewById(R.id.pager_introduction);
+        intro_images = (ViewPager) view.findViewById(R.id.pager_introduction);
 
-        pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
+        pager_indicator = (LinearLayout) view.findViewById(R.id.viewPagerCountDots);
 
-        mAdapter = new ViewPagerAdapter(NearestSalonActivity.this, mImageResources);
+        mAdapter = new ViewPagerAdapter(getActivity(), mImageResources);
         intro_images.setAdapter(mAdapter);
         intro_images.setCurrentItem(0);
         intro_images.setOnPageChangeListener(this);
@@ -107,7 +105,7 @@ public class NearestSalonActivity extends AppCompatActivity implements ViewPager
         dots = new ImageView[dotsCount];
 
         for (int i = 0; i < dotsCount; i++) {
-            dots[i] = new ImageView(this);
+            dots[i] = new ImageView(getActivity());
             dots[i].setImageDrawable(getResources().getDrawable(R.drawable.nonselecteditem_dot));
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
@@ -154,29 +152,24 @@ public class NearestSalonActivity extends AppCompatActivity implements ViewPager
     @Override
     public void onPageScrollStateChanged(int state) {
 
+
     }
 
 
-    private void setuptoolbar()
+    /*private void setuptoolbar(View view)
     {
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        toolbar_title_txt = (TextView) findViewById(R.id.title_txt);
+        toolbar_title_txt = (TextView) view.findViewById(R.id.title_txt);
 
         toolbar_title_txt.setText("NEAREST SALON");
 
     }
-
+*/
     private void setup_font() {
 
-        Typeface tf = Typeface.createFromAsset(this.getAssets(), "Lato-Regular.ttf");
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Lato-Regular.ttf");
 
-        toolbar_title_txt.setTypeface(tf);
+        //toolbar_title_txt.setTypeface(tf);
 
         continueButton.setTypeface(tf);
         showAllButton.setTypeface(tf);
@@ -184,27 +177,6 @@ public class NearestSalonActivity extends AppCompatActivity implements ViewPager
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.user, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
-
-            case android.R.id.home:
-                finish();
-                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 
 }

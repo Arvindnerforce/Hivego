@@ -17,4 +17,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="dialog_title">&quot;Hivego&quot; Would Like to\n Send You Notifications</string>
+    <string name="gender_notification">Notification may be include alerts\n sounds and icon badges. These can be\n configured in Settings.</string>
+
+    <string name="show_premium_feature">SHOW PREMIUM ONLY</string>
+    <string name="show_budget">SHOW BUDGET ONLY</string>
+
 </resources>

@@ -12,8 +12,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.chat.laptop.hivego.R;
-import com.chat.laptop.hivego.introduction.DefaultIntro;
-import com.chat.laptop.hivego.salon.NearestSalonActivity;
 import com.chat.laptop.hivego.tutorial.TutorialActivity;
 
 public class ConfirmActivity extends AppCompatActivity {

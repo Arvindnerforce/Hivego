@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.dashboard.fragment.GenderFragment;
+import com.chat.laptop.hivego.dashboard.fragment.SearchCityFragment;
 import com.chat.laptop.hivego.dashboard.navigation.NavigationFragment;
 
 
@@ -27,12 +28,10 @@ public class DashboardActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
         // Initializing Toolbar and setting it as the actionbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 

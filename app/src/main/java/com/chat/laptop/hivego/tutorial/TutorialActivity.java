@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.chat.laptop.hivego.R;
-import com.chat.laptop.hivego.salon.NearestSalonActivity;
+import com.chat.laptop.hivego.dashboard.DashboardActivity;
 
 
 public class TutorialActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, View.OnClickListener{
@@ -49,7 +49,7 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent otp = new Intent(TutorialActivity.this, NearestSalonActivity.class);
+                Intent otp = new Intent(TutorialActivity.this, DashboardActivity.class);
                 startActivity(otp);
                 overridePendingTransition(R.anim.enter, R.anim.exit);
             }
