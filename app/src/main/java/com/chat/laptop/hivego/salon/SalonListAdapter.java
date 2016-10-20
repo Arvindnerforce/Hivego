@@ -2,7 +2,8 @@ package com.chat.laptop.hivego.salon;
 
 import android.content.Context;
 
-import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.chat.laptop.hivego.R;
+import com.chat.laptop.hivego.salon.salon_detail_list.SalonDetailsFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -58,11 +60,12 @@ public class SalonListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             public void onClick(View view) {
 
 
-              /*  SalonListFragment salonListFragment = new SalonListFragment();
-                android.support.v4.app.FragmentTransaction search_fragmentTransaction = context.getSupportFragmentManager().beginTransaction();
+                SalonDetailsFragment salonListFragment = new SalonDetailsFragment();
+                FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
+                android.support.v4.app.FragmentTransaction search_fragmentTransaction = fragmentManager.beginTransaction();
                 search_fragmentTransaction.replace(R.id.frame, salonListFragment);
                 search_fragmentTransaction.addToBackStack(null);
-                search_fragmentTransaction.commit();*/
+                search_fragmentTransaction.commit();
 
 
 

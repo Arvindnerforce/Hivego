@@ -36,4 +36,5 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.afollestad.material-dialogs:core:0.8.6.0'
     compile 'com.seatgeek:placesautocomplete:0.2-SNAPSHOT'
+    compile 'com.github.ivbaranov:materialfavoritebutton:0.1.2'
 }

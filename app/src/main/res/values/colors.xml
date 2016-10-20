@@ -4,7 +4,9 @@
     <color name="colorPrimaryDark">#F40031</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
-    <color name="dialog_background">#ECEBEB</color>
+    <color name="dialog_background">#4DECEBEB</color>
     <color name="dialog_button_color">#006CFF</color>
     <color name="green">#7BD321</color>
+    <color name="black">#000000</color>
+    <color name="nail_header_back">#F0F0F0</color>
 </resources>

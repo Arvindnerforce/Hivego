@@ -1,38 +1,36 @@
-package com.chat.laptop.hivego.services;
+package com.chat.laptop.hivego.services.nailfragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.chat.laptop.hivego.R;
-import com.chat.laptop.hivego.services.nailfragment.NailFragment;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 /**
- * Created by John on 9/7/2016.
+ * Created by John on 10/20/2016.
  */
-public class MenServicesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class NailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int SIMPLE_TYPE = 0;
     private static final int IMAGE_TYPE = 1;
     private final LayoutInflater inflater;
-    private List<MenServicesData> itemList;
+    private List<NailData> itemList;
     private Context context;
-    MenServicesHolder viewHolder;
+    NailHolder viewHolder;
+    Service_details_Adapter service_details_adapter;
 
-
-    public MenServicesAdapter(Context context, List<MenServicesData> itemList) {
+    public NailAdapter(Context context, List<NailData> itemList)
+    {
         this.itemList = itemList;
         this.context = context;
         inflater = LayoutInflater.from(context);
@@ -42,9 +40,8 @@ public class MenServicesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
 
-        View view = inflater.inflate(R.layout.row_services, parent, false);
-        viewHolder = new MenServicesHolder(view);
-
+        View view = inflater.inflate(R.layout.row_nail, parent, false);
+        viewHolder = new NailHolder(view);
 
         return viewHolder;
     }
@@ -53,19 +50,22 @@ public class MenServicesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position)
     {
 
-        MenServicesHolder homeHolder = (MenServicesHolder) holder;
+        NailHolder homeHolder = (NailHolder) holder;
 
-        homeHolder.salon_name.setText(itemList.get(position).price.toString());
+        homeHolder.service_tittle.setText(itemList.get(position).price.toString());
 
 
-        Resources res = context.getResources();
-        int resID = res.getIdentifier(itemList.get(position).image.toString() , "drawable", context.getPackageName());
-        Drawable drawable = res.getDrawable(resID);
-        homeHolder.men_image.setImageDrawable(drawable);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context);
+        homeHolder.recyclerView.setLayoutManager(layoutManager);
+        service_details_adapter = new Service_details_Adapter(context, itemList.get(position).sellerAnswerDatas);
+        homeHolder.recyclerView.setAdapter(service_details_adapter);
 
-        homeHolder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+
+        homeHolder.nail_linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
+
                 NailFragment salonListFragment = new NailFragment();
                 FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
                 android.support.v4.app.FragmentTransaction search_fragmentTransaction = fragmentManager.beginTransaction();
@@ -95,3 +95,4 @@ public class MenServicesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         return new SimpleDateFormat("dd MMM yyyy HH:mm").format(new Date());
     }
 }
+

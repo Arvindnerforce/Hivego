@@ -1,5 +1,14 @@
-package com.chat.laptop.hivego.salon;
+package com.chat.laptop.hivego.salon.salon_detail_list;
 
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.chat.laptop.hivego.R;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -16,10 +25,12 @@ import android.widget.TextView;
 import android.support.v4.app.Fragment;
 import com.chat.laptop.hivego.R;
 
+import com.chat.laptop.hivego.salon.SalonListFragment;
+import com.chat.laptop.hivego.services.MenServicesFragment;
 import com.chat.laptop.hivego.tutorial.ViewPagerAdapter;
 
 
-public class NearestSalonFragment extends Fragment implements ViewPager.OnPageChangeListener, View.OnClickListener{
+public class SalonDetailsFragment extends Fragment implements ViewPager.OnPageChangeListener, View.OnClickListener{
 
 
     private ViewPager intro_images;
@@ -42,9 +53,9 @@ public class NearestSalonFragment extends Fragment implements ViewPager.OnPageCh
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_nearest_salon, container, false);
+        View view = inflater.inflate(R.layout.fragment_salon_details, container, false);
 
-       setuptoolbar(view);
+        setuptoolbar(view);
 
         setup_layout(view);
         setReference(view);
@@ -58,27 +69,15 @@ public class NearestSalonFragment extends Fragment implements ViewPager.OnPageCh
 
         continueButton = (Button) view.findViewById(R.id.continueButton);
 
-        showAllButton = (Button) view.findViewById(R.id.showAllButton);
-
         salonNametxt = (TextView) view.findViewById(R.id.salonNametxt);
 
-        showAllButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SalonListFragment salonListFragment = new SalonListFragment();
-                android.support.v4.app.FragmentTransaction search_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                search_fragmentTransaction.replace(R.id.frame, salonListFragment);
-                search_fragmentTransaction.addToBackStack(null);
-                search_fragmentTransaction.commit();
-            }
-        });
 
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SalonListFragment salonListFragment = new SalonListFragment();
+                MenServicesFragment menServicesFragment = new MenServicesFragment();
                 android.support.v4.app.FragmentTransaction search_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                search_fragmentTransaction.replace(R.id.frame, salonListFragment);
+                search_fragmentTransaction.replace(R.id.frame, menServicesFragment);
                 search_fragmentTransaction.addToBackStack(null);
                 search_fragmentTransaction.commit();
             }
@@ -163,7 +162,7 @@ public class NearestSalonFragment extends Fragment implements ViewPager.OnPageCh
 
         title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
 
-        title_txt.setText("NEAREST SALON");
+        title_txt.setText("HAVIGO - F SALON PARIS");
 
     }
 
@@ -174,7 +173,7 @@ public class NearestSalonFragment extends Fragment implements ViewPager.OnPageCh
         title_txt.setTypeface(tf);
 
         continueButton.setTypeface(tf);
-        showAllButton.setTypeface(tf);
+
         salonNametxt.setTypeface(tf);
 
     }

@@ -48,6 +48,8 @@ public class SalonListFragment extends Fragment {
         salonListAdapter = new SalonListAdapter(getActivity(), salonListDatas);
 
         salonlist_recyclerview.setAdapter(salonListAdapter);
+
+
     }
 
     private void setFilterData()

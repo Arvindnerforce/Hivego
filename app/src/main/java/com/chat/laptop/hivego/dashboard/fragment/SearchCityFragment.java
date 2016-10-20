@@ -2,10 +2,12 @@ package com.chat.laptop.hivego.dashboard.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.salon.NearestSalonFragment;
@@ -14,12 +16,13 @@ import com.seatgeek.placesautocomplete.PlacesAutocompleteTextView;
 import com.seatgeek.placesautocomplete.model.Place;
 
 
-public class SearchCityFragment extends Fragment {
+public class SearchCityFragment extends Fragment
+{
 
 
     PlacesAutocompleteTextView placesAutocomplete;
     Button search_button;
-
+    TextView toolbar_title_txt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -30,6 +33,8 @@ public class SearchCityFragment extends Fragment {
         search_button = (Button) view.findViewById(R.id.search_button);
 
         placesAutocomplete = (PlacesAutocompleteTextView) view.findViewById(R.id.places_autocomplete);
+
+        setuptoolbar(view);
 
         placesAutocomplete.setOnPlaceSelectedListener(
                 new OnPlaceSelectedListener()
@@ -55,6 +60,17 @@ public class SearchCityFragment extends Fragment {
         });
 
         return view;
+    }
+
+
+    private void setuptoolbar(View view)
+    {
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+
+        toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
+
+        toolbar_title_txt.setText("SEARCH IN YOUR CITY");
+
     }
 
 }

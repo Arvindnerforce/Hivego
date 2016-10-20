@@ -20,7 +20,8 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.chat.laptop.hivego.R;
 
 
-public class GenderFragment extends Fragment {
+public class GenderFragment extends Fragment
+{
 
     ImageButton menButton,womanButton;
     ImageView check_male_image,check_female_image;
@@ -70,6 +71,7 @@ public class GenderFragment extends Fragment {
 
                 if (womanisClicked == 0) {
                     check_female_image.setVisibility(View.VISIBLE);
+                    showDialog();
                     womanisClicked = 1;
                 }
                 else

@@ -3,6 +3,7 @@ package com.chat.laptop.hivego.services;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chat.laptop.hivego.R;
@@ -15,9 +16,12 @@ public class MenServicesHolder extends RecyclerView.ViewHolder {
     View view;
     TextView salon_name;
     ImageView men_image;
+    RelativeLayout relativeLayout;
 
     public MenServicesHolder(View itemView) {
         super(itemView);
+
+        relativeLayout = (RelativeLayout) itemView.findViewById(R.id.serviceLayout);
 
         salon_name = (TextView) itemView.findViewById(R.id.salon_name);
 
