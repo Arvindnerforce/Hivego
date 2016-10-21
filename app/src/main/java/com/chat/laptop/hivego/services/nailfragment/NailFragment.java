@@ -23,7 +23,8 @@ import com.chat.laptop.hivego.services.MenServicesData;
 import java.util.ArrayList;
 
 
-public class NailFragment extends Fragment {
+public class NailFragment extends Fragment
+{
 
 
     RecyclerView nail_recyclerview;
@@ -32,6 +33,8 @@ public class NailFragment extends Fragment {
     Button search_button;
     public static ArrayList<NailData> nailServicesData = new ArrayList<>();
     public static ArrayList<NailData> servicesDetailData = new ArrayList<>();
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -121,6 +124,7 @@ public class NailFragment extends Fragment {
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Lato-Regular.ttf");
         toolbar_title_txt.setTypeface(tf);
     }
+
 
 
 }

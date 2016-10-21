@@ -1,17 +1,18 @@
 package com.chat.laptop.hivego.date_time_fragment;
 
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
 import com.chat.laptop.hivego.dashboard.fragment.GenderFragment;
 
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Created by John on 9/1/2016.
- */
-public class CategoriesAdapter extends FragmentStatePagerAdapter
-{
+public class CategoriesAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
+    private GenderFragment genderFragment;
 
     public CategoriesAdapter(FragmentManager fm, int NumOfTabs)
     {
@@ -19,31 +20,24 @@ public class CategoriesAdapter extends FragmentStatePagerAdapter
         this.mNumOfTabs = NumOfTabs;
     }
 
+
+
     @Override
-    public Fragment getItem(int position)
-    {
+    public Fragment getItem(int position) {
 
         switch (position)
         {
             case 0:
-                GenderFragment special = new GenderFragment();
-                return special;
+                genderFragment = new GenderFragment();
+                return genderFragment;
             case 1:
-                GenderFragment sellings = new GenderFragment();
-                return sellings;
-            case 2:
-                GenderFragment favourite = new GenderFragment();
-                return favourite;
-            case 3:
-                GenderFragment profile = new GenderFragment();
-                return profile;
-            case 4:
-                GenderFragment favourite2 = new GenderFragment();
-                return favourite2;
-
+                genderFragment = new GenderFragment();
+                return genderFragment;
             default:
-                return null;
+                genderFragment = new GenderFragment();
+                return genderFragment;
         }
+
     }
 
     @Override

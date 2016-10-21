@@ -1,22 +1,45 @@
 package com.chat.laptop.hivego.date_time_fragment;
 
-import android.content.Context;
-import android.net.Uri;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.TextView;
 import com.chat.laptop.hivego.R;
+import com.chat.laptop.hivego.general.WrapContentViewPager;
+import com.github.ivbaranov.mfb.MaterialFavoriteButton;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
+import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
+import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
-import java.util.HashMap;
 
 
-public class DateTimeFragment extends Fragment {
+public class DateTimeFragment extends Fragment implements View.OnClickListener,TimePickerDialog.OnTimeSetListener,DatePickerDialog.OnDateSetListener
+{
 
+
+    WrapContentViewPager viewPager;
+    TabLayout tabLayout;
+    MaterialFavoriteButton materialFavoriteButton;
+
+    TextView toolbar_title_txt,month_txt,month_txt_disable;
+
+    private int[] tabIcons =
+            {
+            R.drawable.ic_morning,
+            R.drawable.ic_afternoon,
+            R.drawable.ic_moon,
+            R.drawable.ic_moon
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -24,49 +47,189 @@ public class DateTimeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_date_time, container, false);
 
-        setupTab(view);
+        //setuptoolbar();
+
+        setupViewPager(view);
+
+        month_txt = (TextView) view.findViewById(R.id.month_txt);
+
+        materialFavoriteButton = (MaterialFavoriteButton) view.findViewById(R.id.post_material_button);
+
+        month_txt_disable = (TextView) view.findViewById(R.id.month_txt_disable);
+
+        materialFavoriteButton.setOnClickListener((View.OnClickListener) this);
+
+        month_txt.setOnClickListener((View.OnClickListener) this);
+
+        month_txt_disable.setOnClickListener(((View.OnClickListener) this));
+
         return view;
     }
 
 
-    private void setupTab(View view)
+    private void setupViewPager(View view)
     {
+
+        viewPager = (WrapContentViewPager) view.findViewById(R.id.pager);
+        viewPager.setPagingEnabled(true);
 
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
 
-        tabLayout.addTab(tabLayout.newTab().setText("9 AM - 12 PM"));
-        tabLayout.addTab(tabLayout.newTab().setText("12 PM - 3 PM"));
-        tabLayout.addTab(tabLayout.newTab().setText("3 PM - 6 PM"));
-        tabLayout.addTab(tabLayout.newTab().setText("6 PM - 9 PM"));
+        tabLayout.addTab(tabLayout.newTab().setIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_morning)).setText("6 AM - 9 AM"));
+        tabLayout.addTab(tabLayout.newTab().setIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_afternoon)).setText("9 AM - 12 PM"));
+        tabLayout.addTab(tabLayout.newTab().setIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_evening)).setText("12 PM - 3 PM"));
+        tabLayout.addTab(tabLayout.newTab().setIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_moon)).setText("3 PM -  6 PM"));
 
+        final int tabIconColor = ContextCompat.getColor(getActivity(), R.color.black);
+        final int tabIconSelectedColor = ContextCompat.getColor(getActivity(), R.color.colorPrimary);
+
+
+        tabLayout.getTabAt(0).getIcon().setColorFilter(tabIconSelectedColor, PorterDuff.Mode.SRC_IN);
+        tabLayout.getTabAt(1).getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+        tabLayout.getTabAt(2).getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+        tabLayout.getTabAt(3).getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = (ViewPager) view.findViewById(R.id.pager);
-        final CategoriesAdapter  adapter= new CategoriesAdapter(getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
+        final CategoriesAdapter adapter = new CategoriesAdapter(getChildFragmentManager() , tabLayout.getTabCount());
 
         viewPager.setAdapter(adapter);
+
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
-        {
+
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
             @Override
-            public void onTabSelected(TabLayout.Tab tab)
-            {
+            public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab)
-            {
+                tab.getIcon().setColorFilter(tabIconSelectedColor, PorterDuff.Mode.SRC_IN);
 
             }
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab)
-            {
+            public void onTabUnselected(TabLayout.Tab tab) {
+                tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
 
             }
         });
+
+
+
     }
 
+
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.month_txt:
+
+                Calendar now = Calendar.getInstance();
+                DatePickerDialog dpd = DatePickerDialog.newInstance(
+                        DateTimeFragment.this,
+                        now.get(Calendar.YEAR),
+                        now.get(Calendar.MONTH),
+                        now.get(Calendar.DAY_OF_MONTH)
+                );
+                dpd.show(getActivity().getFragmentManager(), "Datepickerdialog");
+
+
+                break;
+
+            case R.id.post_material_button:
+
+                SimpleDateFormat sdf = new SimpleDateFormat("MMMM-dd-yyyy");
+                Calendar c = Calendar.getInstance();
+                try {
+                    c.setTime(sdf.parse(month_txt_disable.getText().toString()));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                c.add(Calendar.DATE, 1);  // number of days to add, can also use Calendar.DAY_OF_MONTH in place of Calendar.DATE
+                SimpleDateFormat sdf1 = new SimpleDateFormat("MMMM-dd-yyyy");
+                String output = sdf1.format(c.getTime());
+                month_txt.setText(output);
+
+                month_txt_disable.setText(output);
+
+        }
+
+    }
+
+
+    private void setuptoolbar()
+    {
+
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+
+        toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
+
+        toolbar_title_txt.setText("DATE & TIME");
+
+    }
+
+
+
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth)
+    {
+        Date date2 = new Date();
+        SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            monthOfYear = monthOfYear + 1;
+            date2 = date_format.parse(year + "-" + monthOfYear + "-" + dayOfMonth);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        SimpleDateFormat outDate = new SimpleDateFormat("MMMM-dd-yyyy");
+        String n = outDate.format(date2).toString();
+
+        month_txt_disable.setText(n);
+
+        String date_txt = n.substring(0,n.length()-5);
+
+        System.out.println("date============="+date_txt);
+
+        month_txt.setText(date_txt);
+
+      /*   String date = "You picked the following date: "+dayOfMonth+"-"+(++monthOfYear)+"/"+year;
+        Date date2 = new Date();
+        SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MMMM-dd");
+        try
+        {
+            date2 = date_format.parse(year+"-"+monthOfYear+"-"+dayOfMonth);
+        }
+        catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
+
+        System.out.println("date======" + date2.toString());
+
+        String day_txt = date2.toString().substring(0,3);
+
+        String month_data = date2.toString().substring(4, 7);
+        month_txt.setText(day_txt + " " + dayOfMonth + " " + month_data);
+      */
+
+
+
+    }
+
+
+    @Override
+    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute, int second) {
+
+        String hourString = hourOfDay < 10 ? "0"+hourOfDay : ""+hourOfDay;
+        String minuteString = minute < 10 ? "0"+minute : ""+minute;
+        String secondString = second < 10 ? "0"+second : ""+second;
+        String time = "You picked the following time: "+hourString+"h"+minuteString+"m"+secondString+"s";
+        month_txt.setText(time);
+    }
 }
+
