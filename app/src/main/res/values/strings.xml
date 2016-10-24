@@ -23,4 +23,7 @@
     <string name="show_premium_feature">SHOW PREMIUM ONLY</string>
     <string name="show_budget">SHOW BUDGET ONLY</string>
 
+    <string name="discount_code_heading">DISCOUNT CODE</string>
+
+
 </resources>

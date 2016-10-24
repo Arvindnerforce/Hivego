@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/white"
    >
-
 
     <TextView
         android:id="@+id/month_txt_disable"
@@ -16,13 +16,15 @@
         android:textSize="22sp"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/previos_material_button"
-
+        android:visibility="gone"
         />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
+        android:layout_marginTop="20dp"
+
         >
 
 
@@ -38,6 +40,7 @@
             android:layout_centerVertical="true"
             app:mfb_animate_favorite="true"
             app:mfb_animate_unfavorite="true"
+            app:mfb_rotation_angle="0"
             app:mfb_padding="12"
             app:mfb_favorite_image="@drawable/pre_date_image"
             app:mfb_not_favorite_image="@drawable/pre_date_image"
@@ -65,6 +68,7 @@
             android:layout_centerVertical="true"
             app:mfb_animate_favorite="true"
             app:mfb_animate_unfavorite="true"
+            app:mfb_rotation_angle="0"
             app:mfb_padding="12"
             android:layout_toRightOf="@+id/month_txt"
             app:mfb_favorite_image="@drawable/post_date_image"

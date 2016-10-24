@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CategoriesAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
-    private GenderFragment genderFragment;
+    private ChooseDateFragment genderFragment;
 
     public CategoriesAdapter(FragmentManager fm, int NumOfTabs)
     {
@@ -28,13 +28,13 @@ public class CategoriesAdapter extends FragmentStatePagerAdapter {
         switch (position)
         {
             case 0:
-                genderFragment = new GenderFragment();
+                genderFragment = new ChooseDateFragment();
                 return genderFragment;
             case 1:
-                genderFragment = new GenderFragment();
+                genderFragment = new ChooseDateFragment();
                 return genderFragment;
             default:
-                genderFragment = new GenderFragment();
+                genderFragment = new ChooseDateFragment();
                 return genderFragment;
         }
 

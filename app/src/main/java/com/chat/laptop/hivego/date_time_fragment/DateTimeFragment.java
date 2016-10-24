@@ -29,7 +29,7 @@ public class DateTimeFragment extends Fragment implements View.OnClickListener,T
 
     WrapContentViewPager viewPager;
     TabLayout tabLayout;
-    MaterialFavoriteButton materialFavoriteButton;
+    MaterialFavoriteButton post_material_button,previos_material_button;
 
     TextView toolbar_title_txt,month_txt,month_txt_disable;
 
@@ -47,21 +47,73 @@ public class DateTimeFragment extends Fragment implements View.OnClickListener,T
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_date_time, container, false);
 
-        //setuptoolbar();
+        setuptoolbar(view);
 
         setupViewPager(view);
 
         month_txt = (TextView) view.findViewById(R.id.month_txt);
 
-        materialFavoriteButton = (MaterialFavoriteButton) view.findViewById(R.id.post_material_button);
+        post_material_button = (MaterialFavoriteButton) view.findViewById(R.id.post_material_button);
+
+        previos_material_button = (MaterialFavoriteButton) view.findViewById(R.id.previos_material_button);
 
         month_txt_disable = (TextView) view.findViewById(R.id.month_txt_disable);
 
-        materialFavoriteButton.setOnClickListener((View.OnClickListener) this);
+        post_material_button.setFavorite(true, false);
+
+        previos_material_button.setFavorite(true, false);
 
         month_txt.setOnClickListener((View.OnClickListener) this);
 
         month_txt_disable.setOnClickListener(((View.OnClickListener) this));
+
+        previos_material_button.setOnFavoriteChangeListener(
+                new MaterialFavoriteButton.OnFavoriteChangeListener() {
+                    @Override
+                    public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("MMMM-dd-yyyy");
+                        Calendar c = Calendar.getInstance();
+                        try {
+                            c.setTime(sdf.parse(month_txt_disable.getText().toString()));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        c.add(Calendar.DATE, 1);  // number of days to add, can also use Calendar.DAY_OF_MONTH in place of Calendar.DATE
+                        SimpleDateFormat sdf1 = new SimpleDateFormat("MMMM-dd-yyyy");
+                        String output = sdf1.format(c.getTime());
+                        month_txt.setText(output);
+
+                        month_txt_disable.setText(output);
+
+
+                    }
+                });
+
+
+        post_material_button.setOnFavoriteChangeListener(
+                new MaterialFavoriteButton.OnFavoriteChangeListener() {
+                    @Override
+                    public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite)
+                    {
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("MMMM-dd-yyyy");
+                        Calendar c = Calendar.getInstance();
+                        try {
+                            c.setTime(sdf.parse(month_txt_disable.getText().toString()));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        c.add(Calendar.DATE, 1);  // number of days to add, can also use Calendar.DAY_OF_MONTH in place of Calendar.DATE
+                        SimpleDateFormat sdf1 = new SimpleDateFormat("MMMM-dd-yyyy");
+                        String output = sdf1.format(c.getTime());
+                        month_txt.setText(output);
+
+                        month_txt_disable.setText(output);
+
+
+                    }
+                });
 
         return view;
     }
@@ -162,16 +214,7 @@ public class DateTimeFragment extends Fragment implements View.OnClickListener,T
     }
 
 
-    private void setuptoolbar()
-    {
 
-        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-
-        toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
-
-        toolbar_title_txt.setText("DATE & TIME");
-
-    }
 
 
 
@@ -230,6 +273,17 @@ public class DateTimeFragment extends Fragment implements View.OnClickListener,T
         String secondString = second < 10 ? "0"+second : ""+second;
         String time = "You picked the following time: "+hourString+"h"+minuteString+"m"+secondString+"s";
         month_txt.setText(time);
+    }
+
+    private void setuptoolbar(View view)
+    {
+
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+
+        toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
+
+        toolbar_title_txt.setText("DATE & TIME ");
+
     }
 }
 
