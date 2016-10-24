@@ -20,7 +20,9 @@ import com.chat.laptop.hivego.services.MenServicesData;
 import java.util.ArrayList;
 
 
-public class ConfirmOrderFragment extends Fragment {
+public class ConfirmOrderFragment extends Fragment
+{
+
 
     TextView toolbar_title_txt;
     RecyclerView confirm_recyclerview;
@@ -42,7 +44,6 @@ public class ConfirmOrderFragment extends Fragment {
 
     private void setup_recyclerview(View view)
     {
-
         confirm_recyclerview = (RecyclerView) view.findViewById(R.id.recyclerView);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -53,6 +54,8 @@ public class ConfirmOrderFragment extends Fragment {
         confirm_recyclerview.setAdapter(confirmServicesAdapter);
 
         confirm_recyclerview.setNestedScrollingEnabled(true);
+
+
     }
 
 
@@ -76,7 +79,7 @@ public class ConfirmOrderFragment extends Fragment {
 
         toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
 
-        toolbar_title_txt.setText("SERVICES");
+        toolbar_title_txt.setText("CONFIRM");
 
     }
 

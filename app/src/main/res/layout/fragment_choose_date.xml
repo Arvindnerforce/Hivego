@@ -1,18 +1,16 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/white"
-    android:weightSum="10"
     android:orientation="vertical"
-    tools:context="com.chat.laptop.hivego.date_time_fragment.ChooseDateFragment">
+    >
 
   <android.support.v7.widget.RecyclerView
       android:id="@+id/choose_recyclerview"
       android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:layout_marginTop="20dp"
-      android:layout_weight="8.7"
+      android:layout_height="wrap_content"
       >
 
 
@@ -20,8 +18,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.3"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:padding="10dp"
@@ -36,9 +33,8 @@
             android:layout_marginLeft="30dp"
             android:text="SCHEDULE"
             android:background="@drawable/button_selector"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@drawable/button_text_color"
             />
-
 
 
     </LinearLayout>

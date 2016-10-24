@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:background="@color/white"
     >
 
 <LinearLayout
@@ -14,13 +15,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    android:background="@color/white"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         >
 
         <android.support.v7.widget.RecyclerView
@@ -103,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:text="₹"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+
                 android:textStyle="bold"
                 android:layout_marginRight="5dp"
                 />
@@ -145,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:text="₹"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+
                 android:textStyle="bold"
                 android:layout_marginRight="5dp"
                 />
@@ -186,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:text="₹"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+
                 android:textStyle="bold"
                 android:layout_marginRight="5dp"
                 />
@@ -227,7 +226,6 @@
                 android:layout_height="wrap_content"
                 android:text="₹"
                 android:textColor="@color/black"
-                android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginRight="5dp"
                 />
@@ -251,7 +249,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp"
-
+        android:layout_marginTop="20dp"
         >
 
         <TextView
@@ -269,6 +267,7 @@
             android:weightSum="10"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
             >
 
             <EditText
@@ -279,7 +278,7 @@
                 android:padding="13dp"
                 android:layout_marginLeft="30dp"
                 android:hint="ENTER CODE"
-                android:background="@drawable/button_selector"
+                android:background="@drawable/discount_box_back"
                 android:textColor="@color/colorPrimary"
                 />
 
@@ -287,13 +286,13 @@
                 android:id="@+id/applyButton"
                 android:layout_width="0dp"
                 android:layout_weight="3"
+               android:layout_marginTop="-3dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
                 android:text="APPLY"
-                android:background="@drawable/button_selector"
-                android:textColor="@color/colorPrimary"
+                android:background="@drawable/filled_button_background"
+                android:textColor="@color/white"
                 />
-
 
 
         </LinearLayout>
@@ -306,10 +305,9 @@
             android:layout_marginLeft="60dp"
             android:text="PAY"
             android:background="@drawable/button_selector"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@drawable/button_text_color"
             android:layout_marginTop="20dp"
             />
-
 
 
     </LinearLayout>
