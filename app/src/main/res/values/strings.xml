@@ -25,5 +25,9 @@
 
     <string name="discount_code_heading">DISCOUNT CODE</string>
 
+    <string name="salon_address">1st &amp; 2nd Floor,M-28,Greater Kailash2, New Delhi</string>
+    <string name="treading_data">See the treding looks. decide which one suits you and your stylist will give you the similiar look when you show up for your appoinment!</string>
+    <string name="thank_you_data">You are awesome. You appointment was booked Successfully</string>
+
 
 </resources>

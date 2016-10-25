@@ -35,6 +35,7 @@
             android:text="Pay Online (5% Off)"
             android:textColor="@color/black"
             android:layout_alignParentLeft="true"
+            android:layout_marginTop="15dp"
             />
 
 
@@ -63,7 +64,7 @@
             android:textColor="@color/black"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/payonline_txt"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             />
 
 
@@ -83,8 +84,28 @@
             app:mfb_color="black"
             app:mfb_type="star"
             android:layout_below="@+id/payonline_txt"
+            android:layout_marginTop="25dp"
             />
 
     </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/payButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PAY"
+        android:padding="12dp"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="@drawable/button_text_color"
+        android:background="@drawable/button_selector"
+        />
+
+
+
 
 </RelativeLayout>
