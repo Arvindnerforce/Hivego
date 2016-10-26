@@ -9,25 +9,17 @@
     android:weightSum="10">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        >
-
-
-
-
-    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4.5"
+        android:layout_weight="6"
+        android:layout_marginTop="20dp"
+
         >
 
         <ImageView
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/thank_you"
             android:layout_centerHorizontal="true"
@@ -67,7 +59,7 @@
 
 
         <Button
-            android:id="@+id/search_button"
+            android:id="@+id/seeDetail_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"

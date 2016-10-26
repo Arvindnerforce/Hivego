@@ -28,6 +28,8 @@ public class GenderFragment extends Fragment
     int isClicked =  0,womanisClicked = 0;
     MaterialDialog  dailog;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -66,8 +68,8 @@ public class GenderFragment extends Fragment
 
         womanButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
+            public void onClick(View view)
+            {
 
                 if (womanisClicked == 0) {
                     check_female_image.setVisibility(View.VISIBLE);
@@ -157,13 +159,13 @@ public class GenderFragment extends Fragment
                 @Override
                 public void onClick(View view)
                 {
+
                     dialog.dismiss();
                     SearchCityFragment searchCityFragment = new SearchCityFragment();
                     android.support.v4.app.FragmentTransaction search_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     search_fragmentTransaction.replace(R.id.frame, searchCityFragment);
                     search_fragmentTransaction.addToBackStack(null);
                     search_fragmentTransaction.commit();
-
 
                 }
             });

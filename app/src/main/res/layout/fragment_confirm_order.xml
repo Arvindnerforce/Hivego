@@ -70,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:text="1200"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 />
 
 
@@ -112,6 +113,7 @@
                 android:layout_height="wrap_content"
                 android:text="1200"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 />
 
 
@@ -149,7 +151,7 @@
                 android:layout_marginRight="5dp"
                 />
             <TextView
-
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1200"
@@ -190,7 +192,7 @@
                 android:layout_marginRight="5dp"
                 />
             <TextView
-
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1200"
@@ -234,6 +236,7 @@
                 android:layout_height="wrap_content"
                 android:text="1200"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 />
 
 

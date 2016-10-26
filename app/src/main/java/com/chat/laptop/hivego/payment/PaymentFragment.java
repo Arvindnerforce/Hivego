@@ -1,7 +1,5 @@
 package com.chat.laptop.hivego.payment;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.chat.laptop.hivego.R;
-import com.chat.laptop.hivego.appointments.ManageAppointmentFragment;
+import com.chat.laptop.hivego.appointments.AppointmentDetailsFragment;
 
 
 public class PaymentFragment extends Fragment implements View.OnClickListener{
@@ -48,7 +46,7 @@ public class PaymentFragment extends Fragment implements View.OnClickListener{
 
             case R.id.payButton:
 
-                ManageAppointmentFragment manageAppointmentFragment = new ManageAppointmentFragment();
+                AppointmentDetailsFragment manageAppointmentFragment = new AppointmentDetailsFragment();
                 FragmentManager fragmentManager = ((AppCompatActivity)getActivity()).getSupportFragmentManager();
                 android.support.v4.app.FragmentTransaction search_fragmentTransaction = fragmentManager.beginTransaction();
                 search_fragmentTransaction.replace(R.id.frame, manageAppointmentFragment);

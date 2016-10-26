@@ -11,14 +11,14 @@ import com.chat.laptop.hivego.R;
 /**
  * Created by John on 10/25/2016.
  */
-public class ManageAppointmentHolder extends RecyclerView.ViewHolder {
+public class AppointmentDetailsHolder extends RecyclerView.ViewHolder {
 
     View view;
     TextView salon_name;
     ImageView men_image;
     RelativeLayout relativeLayout;
 
-    public ManageAppointmentHolder(View itemView) {
+    public AppointmentDetailsHolder(View itemView) {
         super(itemView);
 
         relativeLayout = (RelativeLayout) itemView.findViewById(R.id.serviceLayout);
