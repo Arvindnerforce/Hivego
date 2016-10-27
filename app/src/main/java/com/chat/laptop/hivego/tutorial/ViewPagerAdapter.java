@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.chat.laptop.hivego.R;
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -39,7 +40,8 @@ public class ViewPagerAdapter extends PagerAdapter {
         View itemView = LayoutInflater.from(mContext).inflate(R.layout.pager_item, container, false);
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.img_pager_item);
-        imageView.setImageResource(mResources[position]);
+
+        Picasso.with(mContext).load(mResources[position]).into(imageView);
 
         container.addView(itemView);
 

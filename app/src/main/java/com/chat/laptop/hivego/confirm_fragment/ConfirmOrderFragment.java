@@ -5,24 +5,36 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.transition.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chat.laptop.hivego.R;
+import com.chat.laptop.hivego.payment.PaymentFragment;
+import com.chat.laptop.hivego.salon.salon_detail_list.SalonDetailsFragment;
 import com.chat.laptop.hivego.services.MenServicesAdapter;
 import com.chat.laptop.hivego.services.MenServicesData;
 
 import java.util.ArrayList;
 
 
-public class ConfirmOrderFragment extends Fragment {
+public class ConfirmOrderFragment extends Fragment implements View.OnClickListener
+{
 
+    Button applyButton,earlyBirdButton,payButton;
     TextView toolbar_title_txt;
+    LinearLayout linearlayout;
+    EditText editText;
     RecyclerView confirm_recyclerview;
     ConfirmOrderAdapter confirmServicesAdapter;
     public static ArrayList<ConfirmOrderData> confirmOrderDatas = new ArrayList<>();
@@ -34,15 +46,32 @@ public class ConfirmOrderFragment extends Fragment {
 
         setuptoolbar(view);
         setServicesData();
+        setupLayout(view);
         setup_recyclerview(view);
         setup_font(view);
 
         return view;
     }
 
+    private void setupLayout(View view)
+    {
+        payButton = (Button) view.findViewById(R.id.payButton);
+        payButton.setOnClickListener(this);
+
+        applyButton = (Button) view.findViewById(R.id.applyButton);
+        applyButton.setOnClickListener(this);
+
+        earlyBirdButton = (Button) view.findViewById(R.id.earlyBirdButton);
+        earlyBirdButton.setOnClickListener(this);
+
+        linearlayout = (LinearLayout) view.findViewById(R.id.enterCodelayout);
+
+        editText = (EditText) view.findViewById(R.id.discountEdittext);
+
+    }
+
     private void setup_recyclerview(View view)
     {
-
         confirm_recyclerview = (RecyclerView) view.findViewById(R.id.recyclerView);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -58,10 +87,11 @@ public class ConfirmOrderFragment extends Fragment {
 
     private void setServicesData()
     {
-
-        try {
+        try
+        {
             confirmOrderDatas.clear();
-        } catch (Exception ex) {
+        }
+        catch (Exception ex) {
         }
         confirmOrderDatas.add(new ConfirmOrderData("hair_care","","HAIR CARE"));
         confirmOrderDatas.add(new ConfirmOrderData("face", "", "FACE"));
@@ -71,12 +101,11 @@ public class ConfirmOrderFragment extends Fragment {
 
     private void setuptoolbar(View view)
     {
-
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
 
         toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
 
-        toolbar_title_txt.setText("SERVICES");
+        toolbar_title_txt.setText("CONFIRM");
 
     }
 
@@ -87,4 +116,34 @@ public class ConfirmOrderFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View view)
+    {
+        switch (view.getId())
+        {
+
+
+            case R.id.applyButton:
+                applyButton.setVisibility(View.GONE);
+                editText.setVisibility(View.GONE);
+                earlyBirdButton.setVisibility(View.VISIBLE);
+                break;
+
+            case R.id.earlyBirdButton:
+                earlyBirdButton.setVisibility(View.GONE);
+                editText.setVisibility(View.VISIBLE);
+                applyButton.setVisibility(View.VISIBLE);
+                break;
+
+            case R.id.payButton:
+
+                PaymentFragment salonListFragment = new PaymentFragment();
+                FragmentManager fragmentManager = ((AppCompatActivity)getActivity()).getSupportFragmentManager();
+                android.support.v4.app.FragmentTransaction search_fragmentTransaction = fragmentManager.beginTransaction();
+                search_fragmentTransaction.replace(R.id.frame, salonListFragment);
+                search_fragmentTransaction.addToBackStack(null);
+                search_fragmentTransaction.commit();
+
+        }
+    }
 }

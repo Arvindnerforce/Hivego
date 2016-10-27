@@ -55,6 +55,8 @@ public class SalonListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         homeHolder.salon_name.setText(itemList.get(position).price.toString());
 
+
+
         homeHolder.salon_list_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

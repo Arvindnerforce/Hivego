@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8.5"
-
         >
 
 
@@ -43,7 +42,7 @@
             android:layout_margin="5dp"
             android:text="@string/show_premium_feature"
             android:background="@drawable/button_selector"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@drawable/button_text_color"
             />
 
         <Button

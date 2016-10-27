@@ -137,7 +137,6 @@
                 android:background="@drawable/filled_button_background"
                 android:padding="12dp"
                 android:textColor="#FFFFFF"
-
                 />
 
 

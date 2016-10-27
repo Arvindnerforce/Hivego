@@ -56,7 +56,6 @@ public class SalonDetailsFragment extends Fragment implements ViewPager.OnPageCh
         View view = inflater.inflate(R.layout.fragment_salon_details, container, false);
 
         setuptoolbar(view);
-
         setup_layout(view);
         setReference(view);
         setup_font();
@@ -66,11 +65,9 @@ public class SalonDetailsFragment extends Fragment implements ViewPager.OnPageCh
 
     private void setup_layout(View view)
     {
-
         continueButton = (Button) view.findViewById(R.id.continueButton);
 
         salonNametxt = (TextView) view.findViewById(R.id.salonNametxt);
-
 
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
