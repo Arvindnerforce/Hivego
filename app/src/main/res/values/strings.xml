@@ -28,6 +28,9 @@
     <string name="salon_address">1st &amp; 2nd Floor,M-28,Greater Kailash2, New Delhi</string>
     <string name="treading_data">See the treding looks. decide which one suits you and your stylist will give you the similiar look when you show up for your appoinment!</string>
     <string name="thank_you_data">You are awesome. You appointment was booked \n Successfully</string>
+    <string name="cancel_appointment_details">It Hurts When Our Customer Cancel Appointments. Facing Issues? Our Support Agent Can Help ! Chat with us</string>
+    <string name="upcoming_appointment">UPCOMING</string>
+    <string name="complete_appointment">COMPLETED</string>
 
 
 </resources>

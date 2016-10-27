@@ -15,9 +15,10 @@ import com.chat.laptop.hivego.R;
 
 import java.util.ArrayList;
 
-public class MenServicesFragment extends Fragment {
+public class MenServicesFragment extends Fragment
+{
 
-   TextView toolbar_title_txt;
+    TextView toolbar_title_txt;
     RecyclerView men_recyclerview;
     MenServicesAdapter menServicesAdapter;
     public static ArrayList<MenServicesData> menServicesData = new ArrayList<>();
@@ -26,7 +27,6 @@ public class MenServicesFragment extends Fragment {
     {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_men_services, container, false);
-
 
         setuptoolbar(view);
         setServicesData();
@@ -57,13 +57,13 @@ public class MenServicesFragment extends Fragment {
             menServicesData.clear();
         } catch (Exception ex) {
         }
-        menServicesData.add(new MenServicesData("hair_care","","HAIR CARE"));
-        menServicesData.add(new MenServicesData("face", "", "FACE"));
-        menServicesData.add(new MenServicesData("mackup", "", "MAKEUP"));
-        menServicesData.add(new MenServicesData("nail", "", "NAIL"));
-        menServicesData.add(new MenServicesData("body", "", "BODY"));
-        menServicesData.add(new MenServicesData("massage_spa", "", "MASSAGE AND SPA"));
-        menServicesData.add(new MenServicesData("exclusive_offer", "", "EXCLUSIVE OFFERS"));
+        menServicesData.add(new MenServicesData(R.drawable.hair_care,"","HAIR CARE"));
+        menServicesData.add(new MenServicesData(R.drawable.face, "", "FACE"));
+        menServicesData.add(new MenServicesData(R.drawable.hair_care, "", "MAKEUP"));
+        menServicesData.add(new MenServicesData(R.drawable.face, "", "NAIL"));
+        menServicesData.add(new MenServicesData(R.drawable.hair_care, "", "BODY"));
+        menServicesData.add(new MenServicesData(R.drawable.face, "", "MASSAGE AND SPA"));
+        menServicesData.add(new MenServicesData(R.drawable.hair_care, "", "EXCLUSIVE OFFERS"));
 
     }
 

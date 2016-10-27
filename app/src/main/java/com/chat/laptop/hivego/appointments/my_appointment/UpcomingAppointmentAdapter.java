@@ -1,4 +1,4 @@
-package com.chat.laptop.hivego.choose_trending_looks.choose_style;
+package com.chat.laptop.hivego.appointments.my_appointment;
 
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
@@ -9,31 +9,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 import com.chat.laptop.hivego.R;
-import com.chat.laptop.hivego.choose_trending_looks.bread.BeardFragment;
-import com.chat.laptop.hivego.services.MenServicesData;
-import com.chat.laptop.hivego.services.MenServicesHolder;
 import com.chat.laptop.hivego.services.nailfragment.NailFragment;
-import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 /**
- * Created by John on 10/26/2016.
+ * Created by John on 10/27/2016.
  */
-public class StyleListAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class UpcomingAppointmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int SIMPLE_TYPE = 0;
     private static final int IMAGE_TYPE = 1;
     private final LayoutInflater inflater;
-    private List<StyleList> itemList;
+    private List<upcoming_appointmentData> itemList;
     private Context context;
-    StyleHolder viewHolder;
+    UpcomingAppointmentHolder viewHolder;
 
 
-    public StyleListAdapter(Context context, List<StyleList> itemList) {
+    public UpcomingAppointmentAdapter(Context context, List<upcoming_appointmentData> itemList)
+    {
         this.itemList = itemList;
         this.context = context;
         inflater = LayoutInflater.from(context);
@@ -43,9 +38,8 @@ public class StyleListAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHol
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
 
-        View view = inflater.inflate(R.layout.row_choose_style, parent, false);
-        viewHolder = new StyleHolder(view);
-
+        View view = inflater.inflate(R.layout.row_nail, parent, false);
+        viewHolder = new UpcomingAppointmentHolder(view);
 
         return viewHolder;
     }
@@ -54,21 +48,18 @@ public class StyleListAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position)
     {
 
-        StyleHolder homeHolder = (StyleHolder) holder;
+        UpcomingAppointmentHolder homeHolder = (UpcomingAppointmentHolder) holder;
+
+        homeHolder.service_tittle.setText(itemList.get(position).price.toString());
 
 
-        System.out.println("image=============="+ itemList.get(position).image);
-
-        Picasso.with(context).load(itemList.get(position).image).into(homeHolder.style_image);
-
-
-        homeHolder.salon_list_item.setOnClickListener(new View.OnClickListener() {
+        homeHolder.nail_linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
 
-
-                BeardFragment salonListFragment = new BeardFragment();
-                FragmentManager fragmentManager = ((AppCompatActivity) context).getSupportFragmentManager();
+                NailFragment salonListFragment = new NailFragment();
+                FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
                 android.support.v4.app.FragmentTransaction search_fragmentTransaction = fragmentManager.beginTransaction();
                 search_fragmentTransaction.replace(R.id.frame, salonListFragment);
                 search_fragmentTransaction.addToBackStack(null);
@@ -96,3 +87,5 @@ public class StyleListAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHol
         return new SimpleDateFormat("dd MMM yyyy HH:mm").format(new Date());
     }
 }
+
+

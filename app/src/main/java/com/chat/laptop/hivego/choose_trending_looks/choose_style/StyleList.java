@@ -8,11 +8,13 @@ import java.util.ArrayList;
 public class StyleList {
 
 
-    ArrayList<Integer> image_data = new ArrayList<>();
+    public String title, price;
+    int image;
 
-    StyleList( ArrayList<Integer> image_data)
+    StyleList(int image, String title, String price)
     {
-        this.image_data = image_data;
-
+        this.image = image;
+        this.title = title;
+        this.price = price;
     }
 }

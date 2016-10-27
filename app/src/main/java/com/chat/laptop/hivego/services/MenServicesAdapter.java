@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.services.nailfragment.NailFragment;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -57,11 +58,10 @@ public class MenServicesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         homeHolder.salon_name.setText(itemList.get(position).price.toString());
 
+        System.out.println("image=============="+ itemList.get(position).image);
 
-        Resources res = context.getResources();
-        int resID = res.getIdentifier(itemList.get(position).image.toString() , "drawable", context.getPackageName());
-        Drawable drawable = res.getDrawable(resID);
-        homeHolder.men_image.setImageDrawable(drawable);
+        Picasso.with(context).load(itemList.get(position).image).into(homeHolder.men_image);
+
 
         homeHolder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override

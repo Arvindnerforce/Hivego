@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.login.LoginActivity;
 
+import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -101,6 +102,7 @@ public class SplaceScreen extends AppCompatActivity
                 } catch (NoSuchAlgorithmException e) {
 
                 }
+                deleteCache(getApplicationContext());
                 startActivity(new Intent(SplaceScreen.this, LoginActivity.class));
                 overridePendingTransition(R.anim.enter, R.anim.exit);
                 finish();
@@ -119,6 +121,30 @@ public class SplaceScreen extends AppCompatActivity
         NetworkInfo activeNetworkInfo = connectivityManager
                 .getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    public static void deleteCache(Context context) {
+        try {
+            File dir = context.getCacheDir();
+            deleteDir(dir);
+        } catch (Exception e) {}
+    }
+
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+            return dir.delete();
+        } else if(dir!= null && dir.isFile()) {
+            return dir.delete();
+        } else {
+            return false;
+        }
     }
 
 }

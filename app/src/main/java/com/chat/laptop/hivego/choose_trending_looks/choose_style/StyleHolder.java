@@ -13,13 +13,15 @@ import com.chat.laptop.hivego.R;
  * Created by John on 10/26/2016.
  */
 public class StyleHolder extends RecyclerView.ViewHolder
-
 {
+
+
     View view;
 
     ImageView check_style_image,style_image;
 
     RelativeLayout salon_list_item ;
+
 
     public StyleHolder(View itemView)
     {

@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="15dp"
+
         >
 
         <LinearLayout
@@ -130,8 +131,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/black"
-
                         />
+
 
                     <TextView
                         android:id="@+id/sex_name_heading"
@@ -318,339 +319,62 @@
 
         </LinearLayout>
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="10"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            >
-
-            <Button
-                android:id="@+id/callusButton"
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:layout_height="wrap_content"
-                android:text="CALL US"
-                android:background="@drawable/filled_button_background"
-                android:padding="12dp"
-                android:textColor="#FFFFFF"
-                android:layout_marginRight="5dp"
-                />
-
-            <Button
-                android:id="@+id/navigateButton"
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:layout_height="wrap_content"
-                android:text="NAVIGATE"
-                android:background="@drawable/filled_button_background"
-                android:padding="12dp"
-                android:textColor="#FFFFFF"
-                android:layout_marginLeft="5dp"
-                />
-
-
-
-        </LinearLayout>
-
-
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp"
-            >
-
-            <Button
-                android:id="@+id/trendingButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CHOOSE TRENDING LOOKS"
-                android:textColor="@drawable/button_text_color"
-                android:background="@drawable/button_selector"
-                android:padding="12dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginRight="5dp"
-                />
-
-
-            <TextView
-                android:id="@+id/trending_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/treading_data"
-                android:layout_below="@+id/trendingButton"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/black"
-                android:layout_centerHorizontal="true"
-                />
-
-        </RelativeLayout>
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             >
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            <ImageView
+              android:layout_centerHorizontal="true"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_hivego_staff"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            >
+
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel_appointment_details"
+                />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            >
+
+            <Button
+                android:id="@+id/contineButton"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
-            </android.support.v7.widget.RecyclerView>
-
-
-        </LinearLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            >
-
-            <TextView
-                android:id="@+id/sub_total_before_discount_txt"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Subtotal before discount"
+                android:padding="15dp"
+                android:text="CONTINUE"
                 android:layout_marginTop="10dp"
-                android:textColor="@color/black"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@drawable/button_text_color"
+                android:background="@drawable/button_selector"
                 />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
-                >
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₹"
-                    android:textColor="@color/black"
-
-                    android:textStyle="bold"
-                    android:layout_marginRight="5dp"
-                    />
-                <TextView
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1200"
-                    android:textColor="@color/black"
-                    />
-
-
-            </LinearLayout>
-
-
-            <TextView
-                android:id="@+id/discount_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Discount"
-                android:layout_below="@+id/sub_total_before_discount_txt"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                />
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/sub_total_before_discount_txt"
-                >
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₹"
-                    android:textColor="@color/black"
-
-                    android:textStyle="bold"
-                    android:layout_marginRight="5dp"
-                    />
-                <TextView
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1200"
-                    android:textColor="@color/black"
-                    />
-
-
-            </LinearLayout>
-
-
-            <TextView
-                android:id="@+id/subtotal_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Subtotal"
-                android:layout_below="@+id/discount_txt"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                />
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/discount_txt"
-                >
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₹"
-                    android:textColor="@color/black"
-
-                    android:textStyle="bold"
-                    android:layout_marginRight="5dp"
-                    />
-                <TextView
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1200"
-                    android:textColor="@color/black"
-                    />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/service__tax_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Service Tax"
-                android:layout_below="@+id/subtotal_txt"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                />
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/subtotal_txt"
-                >
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₹"
-                    android:textColor="@color/black"
-
-                    android:textStyle="bold"
-                    android:layout_marginRight="5dp"
-                    />
-                <TextView
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1200"
-                    android:textColor="@color/black"
-                    />
-
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/total_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Total Payable"
-                android:layout_below="@+id/service__tax_txt"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                />
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/service__tax_txt"
-                >
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₹"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginRight="5dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1200"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
-
-
-            </LinearLayout>
 
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:weightSum="10"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="30dp"
-            >
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:layout_height="wrap_content"
-                android:text="RESCHEDULE"
-                android:padding="6dp"
-                android:textColor="@drawable/button_text_color"
-                android:background="@drawable/button_selector"
-                android:layout_marginRight="5dp"
-                />
-
-            <Button
-                android:id="@+id/cancelButton"
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:layout_height="wrap_content"
-                android:text="CANCEL"
-                android:textColor="@drawable/button_text_color"
-                android:background="@drawable/button_selector"
-                android:padding="6dp"
-                android:layout_marginLeft="5dp"
-                />
 
         </LinearLayout>
 
-
-    </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.NestedScrollView>

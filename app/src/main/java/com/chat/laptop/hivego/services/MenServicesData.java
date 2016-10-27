@@ -5,9 +5,10 @@ package com.chat.laptop.hivego.services;
  */
 public class MenServicesData {
 
-    public String image, title, price;
+    public String title, price;
+    int image;
 
-    MenServicesData(String image, String title, String price)
+    MenServicesData(int image, String title, String price)
     {
         this.image = image;
         this.title = title;

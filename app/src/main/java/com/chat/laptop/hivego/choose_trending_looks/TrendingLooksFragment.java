@@ -34,9 +34,9 @@ public class TrendingLooksFragment extends Fragment
         // Inflate the layout for this fragment
        View view =  inflater.inflate(R.layout.fragment_trending_looks, container, false);
 
+        setuptoolbar(view);
 
         continueButton  =(Button) view.findViewById(R.id.continueButton);
-
 
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +53,18 @@ public class TrendingLooksFragment extends Fragment
 
         return view;
     }
+    private void setuptoolbar(View view)
+    {
 
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+
+        toolbar.setVisibility(View.GONE);
+
+        toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
+
+       // toolbar_title_txt.setText("CHOOSE A STYLE");
+
+    }
 
 
 

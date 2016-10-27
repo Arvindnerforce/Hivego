@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.salon.SalonListAdapter;
 import com.chat.laptop.hivego.salon.SalonListData;
+import com.chat.laptop.hivego.services.MenServicesData;
 
 import java.util.ArrayList;
 
@@ -54,31 +55,13 @@ public class ChooseStyleFragment extends Fragment
         salonlist_recyclerview = (RecyclerView) view.findViewById(R.id.salon_recyclerview);
 
 
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity()) {
-
-            @Override
-            public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {
-                LinearSmoothScroller smoothScroller = new LinearSmoothScroller(getActivity()) {
-
-                    private static final float SPEED = 300f;// Change this value (default=25f)
-
-                    @Override
-                    protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
-                        return SPEED / displayMetrics.densityDpi;
-                    }
-
-                };
-                smoothScroller.setTargetPosition(position);
-                startSmoothScroll(smoothScroller);
-            }
-
-        };
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        salonlist_recyclerview.setLayoutManager(mLayoutManager);
 
 
-        salonlist_recyclerview.setLayoutManager(layoutManager);
+        salonlist_recyclerview.setLayoutManager(mLayoutManager);
 
-        styleListAdapter = new StyleListAdapter(getActivity(), itemsimg);
+        styleListAdapter = new StyleListAdapter(getActivity(), styleLists);
 
         salonlist_recyclerview.setAdapter(styleListAdapter);
 
@@ -88,19 +71,18 @@ public class ChooseStyleFragment extends Fragment
     private void setFilterData()
     {
 
+
         try {
-            itemsimg.clear();
+            styleLists.clear();
         } catch (Exception ex) {
         }
-        itemsimg.add(R.drawable.ic_style1);
-        itemsimg.add(R.drawable.ic_style2);
-        itemsimg.add(R.drawable.ic_style3);
-        itemsimg.add(R.drawable.ic_style4);
-        itemsimg.add(R.drawable.ic_style5);
-        itemsimg.add(R.drawable.ic_style6);
-        itemsimg.add(R.drawable.ic_style7);
-
-
+        styleLists.add(new StyleList(R.drawable.ic_style1,"","HAIR CARE"));
+        styleLists.add(new StyleList(R.drawable.ic_style2, "", "FACE"));
+        styleLists.add(new StyleList(R.drawable.ic_style1, "", "MAKEUP"));
+        styleLists.add(new StyleList(R.drawable.ic_style2, "", "NAIL"));
+        styleLists.add(new StyleList(R.drawable.ic_style1, "", "BODY"));
+        styleLists.add(new StyleList(R.drawable.ic_style2, "", "MASSAGE AND SPA"));
+        styleLists.add(new StyleList(R.drawable.ic_style1, "", "EXCLUSIVE OFFERS"));
 
 
     }
@@ -110,10 +92,11 @@ public class ChooseStyleFragment extends Fragment
     {
 
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setVisibility(View.VISIBLE);
 
         toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
 
-        toolbar_title_txt.setText("SIZE OF YOUR BEARD?");
+        toolbar_title_txt.setText("CHOOSE A STYLE");
 
     }
 
