@@ -16,8 +16,11 @@ import android.widget.TextView;
 
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.appointments.cancel_appointment.CancelAppointmentFragment;
+import com.chat.laptop.hivego.appointments.cancel_appointment.ManageCancelAppointmentFragment;
+import com.chat.laptop.hivego.appointments.my_appointment.MyAppointmentFragment;
 import com.chat.laptop.hivego.choose_trending_looks.TrendingLooksFragment;
 import com.chat.laptop.hivego.choose_trending_looks.choose_style.ChooseStyleFragment;
+import com.chat.laptop.hivego.date_time_fragment.DateTimeFragment;
 
 import java.util.ArrayList;
 
@@ -28,7 +31,7 @@ public class AppointmentDetailsFragment extends Fragment implements View.OnClick
     public static ArrayList<AppointmentDetailsData> manageAppointmentData = new ArrayList<>();
     RecyclerView  manage_appointment_recyclerview;
     AppointmentDetailsAdapter manageAppointmentAdapter;
-    Button trendingButton,callusButton,navigateButton,cancelButton;
+    Button trendingButton,callusButton,navigateButton,cancelButton,scheduleButton;
     TextView toolbar_title_txt,title_txt,prepaid_txt,salon_heading,salon_name,salon_address,customer_name_heading,booking_name_heading
             ,sex_name_heading,time_name_heading,customer_name_txt,booking_id_txt,sex_txt,user_time_txt,date_heading,date_txt,time_txt;
 
@@ -57,6 +60,9 @@ public class AppointmentDetailsFragment extends Fragment implements View.OnClick
 
     private void setup_layout(View view)
     {
+        scheduleButton = (Button) view.findViewById(R.id.rescheduleButton);
+
+        scheduleButton.setOnClickListener(this);
 
         cancelButton = (Button) view.findViewById(R.id.cancelButton);
 
@@ -130,7 +136,7 @@ public class AppointmentDetailsFragment extends Fragment implements View.OnClick
         toolbar.setVisibility(View.VISIBLE);
         toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
 
-        toolbar_title_txt.setText("MANAGE APPOINTMENT");
+        toolbar_title_txt.setText("APPOINTMENT DETAILS");
 
     }
 
@@ -158,14 +164,24 @@ public class AppointmentDetailsFragment extends Fragment implements View.OnClick
 
                 break;
 
+
             case R.id.cancelButton:
-                CancelAppointmentFragment cancelAppointmentFragment = new CancelAppointmentFragment();
+                MyAppointmentFragment manageCancelAppointmentFragment = new MyAppointmentFragment();
                 FragmentManager fragmentManager2 = ((AppCompatActivity) getActivity()).getSupportFragmentManager();
                 android.support.v4.app.FragmentTransaction search_fragmentTransaction2 = fragmentManager2.beginTransaction();
-                search_fragmentTransaction2.replace(R.id.frame, cancelAppointmentFragment);
+                search_fragmentTransaction2.replace(R.id.frame, manageCancelAppointmentFragment);
                 search_fragmentTransaction2.addToBackStack(null);
                 search_fragmentTransaction2.commit();
+                break;
 
+            case R.id.rescheduleButton:
+                DateTimeFragment dateTimeFragment = new DateTimeFragment();
+                FragmentManager datetime_fragment = ((AppCompatActivity) getActivity()).getSupportFragmentManager();
+                android.support.v4.app.FragmentTransaction date_time_fragmentTransaction = datetime_fragment.beginTransaction();
+                date_time_fragmentTransaction.replace(R.id.frame, dateTimeFragment);
+                date_time_fragmentTransaction.addToBackStack(null);
+                date_time_fragmentTransaction.commit();
+                break;
 
         }
     }

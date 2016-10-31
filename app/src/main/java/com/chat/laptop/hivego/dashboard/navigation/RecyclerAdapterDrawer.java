@@ -25,6 +25,8 @@ import java.util.List;
 public class RecyclerAdapterDrawer extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
 
+
+
     private static final int ALERT_DRAWER = 4;
     public static int selected_item = 0;
     private final LayoutInflater inflater;
@@ -41,22 +43,15 @@ public class RecyclerAdapterDrawer extends RecyclerView.Adapter<RecyclerView.Vie
         this.data = data;
         this.context = context;
 
-
-
     }
 
-
-
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
         View view = inflater.inflate(R.layout.row_navigation_drawer, parent, false);
         MyViewHolder viewHolder = new MyViewHolder(view);
         return viewHolder;
-
     }
-
-
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position)
@@ -64,7 +59,9 @@ public class RecyclerAdapterDrawer extends RecyclerView.Adapter<RecyclerView.Vie
 
         MyViewHolder myViewHolder = (MyViewHolder) holder;
 
-        if(position == selected_item)
+
+
+       /* if(position == selected_item)
         {
 
             myViewHolder.textView.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
@@ -81,7 +78,7 @@ public class RecyclerAdapterDrawer extends RecyclerView.Adapter<RecyclerView.Vie
             myViewHolder.linearLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.white));
            // myViewHolder.imageView.setImageResource(data.get(position).id);
         }
-
+       */
         myViewHolder.textView.setText(data.get(position).text);
 
 
@@ -99,7 +96,8 @@ public class RecyclerAdapterDrawer extends RecyclerView.Adapter<RecyclerView.Vie
         return data.size();
     }
 
-    public void setClickListner(clickListner click) {
+    public void setClickListner(clickListner click)
+    {
 
         this.click = click;
     }

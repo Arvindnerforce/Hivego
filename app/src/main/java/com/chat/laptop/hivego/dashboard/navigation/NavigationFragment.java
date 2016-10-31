@@ -19,12 +19,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chat.laptop.hivego.R;
+import com.chat.laptop.hivego.appointments.my_appointment.MyAppointmentFragment;
 import com.chat.laptop.hivego.dashboard.fragment.GenderFragment;
+import com.chat.laptop.hivego.edit_profile.EditProfileFragment;
+import com.chat.laptop.hivego.invite_friends.InviteFriendsFragment;
 
 
 import java.util.ArrayList;
@@ -55,7 +60,7 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
     public static SharedPreferences.Editor loginPrefsEditor;
     public static List<RowDataDrawer> list = new LinkedList<>();
     private Context context;
-
+    ImageButton close_Button;
     RelativeLayout header;
     CircleImageView circleImageViewProfilePic;
     TextView textViewName;
@@ -85,9 +90,14 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
     {
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
 
+        close_Button = (ImageButton) view.findViewById(R.id.close_Button);
+
+        close_Button.setOnClickListener(this);
+
         list = setDrawer();
 
         header = (RelativeLayout) view.findViewById(R.id.header);
+
 
         adapter = new RecyclerAdapterDrawer(context, list);
 
@@ -113,7 +123,7 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
     {
         List<RowDataDrawer> list = new ArrayList<>();
 
-        String title[] = {"Home","Preferences","Edit Profile", "Invite Friends", "Search Split", "Create Trip","Messages"};
+        String title[] = {"USER PROFILE","BOOK APPOINTMENT","MANAGE APPOINTMENT", "ARTICLES", "INVITE FRIENDS", "CHAT WITH US","FEEDBACK","ABOUT HIVEGO"};
 
         int drawableId[];
 
@@ -223,17 +233,20 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
             switch (RecyclerAdapterDrawer.selected_item)
             {
                 case 0:
-                    GenderFragment fragment = new GenderFragment();
+
+                    EditProfileFragment editProfileFragment = new EditProfileFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.frame, fragment);
+                    fragmentTransaction.replace(R.id.frame, editProfileFragment);
+                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                     break;
 
                 case 1:
 
-                    GenderFragment mySplitFragment = new GenderFragment();
+                    MyAppointmentFragment myAppointmentFragment = new MyAppointmentFragment();
                     FragmentTransaction myspitFragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    myspitFragmentTransaction.replace(R.id.frame,mySplitFragment);
+                    myspitFragmentTransaction.replace(R.id.frame,myAppointmentFragment);
+                    myspitFragmentTransaction.addToBackStack(null);
                     myspitFragmentTransaction.commit();
 
 
@@ -242,9 +255,10 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
 
                 case 2:
 
-                    GenderFragment editProfileFragment = new GenderFragment();
+                    GenderFragment genderFragment = new GenderFragment();
                     FragmentTransaction editfragmentTrasaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    editfragmentTrasaction.replace(R.id.frame,editProfileFragment);
+                    editfragmentTrasaction.replace(R.id.frame,genderFragment);
+                    editfragmentTrasaction.addToBackStack(null);
                     editfragmentTrasaction.commit();
 
 
@@ -255,6 +269,7 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
                     GenderFragment contactlistFragment = new GenderFragment();
                     android.support.v4.app.FragmentTransaction fragmentTransaction2 = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction2.replace(R.id.frame, contactlistFragment);
+                    fragmentTransaction2.addToBackStack(null);
                     fragmentTransaction2.commit();
                     //Intent i2 = new Intent(getActivity(), PostTripActivity.class);
                     //startActivity(i2);
@@ -262,17 +277,19 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
                     break;
                 case 4:
 
-                    GenderFragment searchSplitFragment = new GenderFragment();
+                    InviteFriendsFragment inviteFriendsFragment = new InviteFriendsFragment();
                     android.support.v4.app.FragmentTransaction searchfragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    searchfragmentTransaction.replace(R.id.frame, searchSplitFragment);
+                    searchfragmentTransaction.replace(R.id.frame, inviteFriendsFragment);
+                    searchfragmentTransaction.addToBackStack(null);
                     searchfragmentTransaction.commit();
 
                     break;
                 case 5:
 
-                    GenderFragment postTripFragment = new GenderFragment();
+                    InviteFriendsFragment inviteFriendsFragment2 = new InviteFriendsFragment();
                     android.support.v4.app.FragmentTransaction post_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    post_fragmentTransaction.replace(R.id.frame, postTripFragment);
+                    post_fragmentTransaction.replace(R.id.frame, inviteFriendsFragment2);
+                    post_fragmentTransaction.addToBackStack(null);
                     post_fragmentTransaction.commit();
 
                     break;
@@ -281,6 +298,7 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
                     GenderFragment messageFragment = new GenderFragment();
                     android.support.v4.app.FragmentTransaction message_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     message_fragmentTransaction.replace(R.id.frame, messageFragment);
+                    message_fragmentTransaction.addToBackStack(null);
                     message_fragmentTransaction.commit();
 
 
@@ -315,6 +333,10 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
 
             case R.id.header:
                 showMessage("header");
+                break;
+
+            case R.id.close_Button:
+
                 break;
         }
     }

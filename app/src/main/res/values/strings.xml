@@ -29,8 +29,19 @@
     <string name="treading_data">See the treding looks. decide which one suits you and your stylist will give you the similiar look when you show up for your appoinment!</string>
     <string name="thank_you_data">You are awesome. You appointment was booked \n Successfully</string>
     <string name="cancel_appointment_details">It Hurts When Our Customer Cancel Appointments. Facing Issues? Our Support Agent Can Help ! Chat with us</string>
-    <string name="upcoming_appointment">UPCOMING</string>
+    <string name="upcoming_appointment_txt">UPCOMING</string>
     <string name="complete_appointment">COMPLETED</string>
+    <string name="salon_name">Appointment at Hivego - F Salon, GK 2 Market,New Delhi</string>
+    <string name="tap_details">tap for details and customization</string>
+    <string name="refund_details">YOU WILL RECIEVE A REFUND WHITHIN 7-10 DAYS TO ORIGINAL MEDIUM OF PAYMENT</string>
+    <string name="offer_data">Give a friends 200 on Hivego, and get 200 when the use Hivego</string>
+    <string name="term_heading">TERMS AND CONDITION</string>
+    <string name="user_name">ARNAV MISHRA - 11 AUGUST 2016</string>
+    <string name="thank_data">Thank you. Selected Style has been shared with stylist</string>
+    <string name="important_data">Important: You maty want to get complete look. Add services and save upto 50%</string>
+    <string name="issue_data">Tell us a bit about issue you are facing.</string>
+    <string name="white_chat_box_text">I want to reschedule my today,s appointment</string>
+    <string name="blog_heding_data">Party Makeup, Predicure, Manicure With a choice of your Nail Art</string>
 
 
 </resources>

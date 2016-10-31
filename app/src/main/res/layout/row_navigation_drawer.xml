@@ -4,29 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="#F3F4F6"
+    android:background="@color/colorPrimary"
     >
 
 
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-
-        android:gravity="center">
-
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:background="@color/colorPrimary"
+        >
 
 
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginLeft="16dp"
             android:text="Demo test"
-            android:textColor="#000000"
-            android:textSize="14sp"
+            android:textColor="@color/white"
             />
 
 
