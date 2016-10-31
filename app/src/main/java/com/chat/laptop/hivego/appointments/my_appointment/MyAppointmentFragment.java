@@ -1,21 +1,16 @@
 package com.chat.laptop.hivego.appointments.my_appointment;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.chat.laptop.hivego.R;
-import com.chat.laptop.hivego.date_time_fragment.DateTimeFragment;
-import com.chat.laptop.hivego.services.nailfragment.NailAdapter;
-import com.chat.laptop.hivego.services.nailfragment.NailData;
-import com.chat.laptop.hivego.services.nailfragment.ServiceDetailData;
 
 import java.util.ArrayList;
 
@@ -23,10 +18,13 @@ import java.util.ArrayList;
 public class MyAppointmentFragment extends Fragment {
 
 
-    public static ArrayList<upcoming_appointmentData> upcoming_appointmentDatas = new ArrayList<>();
-    RecyclerView upcoming_recyclerview;
-    UpcomingAppointmentAdapter upcomingAppointmentAdapter;
+    public static ArrayList<CompleteAppointmentData> complete_appointmentDatas = new ArrayList<>();
 
+    public static ArrayList<Upcoming_AppointData> upcoming_appointmentDatas = new ArrayList<>();
+    RecyclerView upcoming_recyclerview,complete_appointment_recyclerview;
+    UpcomingAppointmentAdapter upcomingAppointmentAdapter;
+    CompleteAppointmentAdapter completeAppointmentAdapter;
+    TextView toolbar_title_txt;
     
 
     @Override
@@ -35,13 +33,55 @@ public class MyAppointmentFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_my_appointment, container, false);
 
-        setServicesData();
+        setup_tolbar();
+        setUpcommingAppointmentData();
+        setCompleteAppointmentData();
+        setup_complete_appointment(view);
         setup_recyclerview(view);
+
 
         return view;
     }
 
-    private void setServicesData()
+    private void setup_complete_appointment(View view) {
+
+
+        complete_appointment_recyclerview = (RecyclerView) view.findViewById(R.id.complete_appointment);
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        complete_appointment_recyclerview.setLayoutManager(mLayoutManager);
+
+        completeAppointmentAdapter = new CompleteAppointmentAdapter(getActivity(), complete_appointmentDatas);
+
+        complete_appointment_recyclerview.setAdapter(completeAppointmentAdapter);
+
+        complete_appointment_recyclerview.setNestedScrollingEnabled(true);
+    }
+
+    private void setCompleteAppointmentData() {
+
+        try
+        {
+            complete_appointmentDatas.clear();
+        } catch (Exception ex) {
+        }
+
+        complete_appointmentDatas.add(new CompleteAppointmentData("face", "", "Regular Manicure"));
+        complete_appointmentDatas.add(new CompleteAppointmentData("face", "", "Crystal Spa Manicure"));
+
+    }
+
+    private void setup_tolbar()
+    {
+
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setVisibility(View.VISIBLE);
+        toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
+        toolbar_title_txt.setText("MY APPOINTMENT");
+
+    }
+
+    private void setUpcommingAppointmentData()
     {
 
         try
@@ -50,8 +90,8 @@ public class MyAppointmentFragment extends Fragment {
         } catch (Exception ex) {
         }
 
-        upcoming_appointmentDatas.add(new upcoming_appointmentData("face", "", "Regular Manicure"));
-        upcoming_appointmentDatas.add(new upcoming_appointmentData("face", "", "Crystal Spa Manicure"));
+        upcoming_appointmentDatas.add(new Upcoming_AppointData("face", "", "Regular Manicure"));
+        upcoming_appointmentDatas.add(new Upcoming_AppointData("face", "", "Crystal Spa Manicure"));
 
     }
 

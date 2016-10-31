@@ -9,4 +9,7 @@
     <color name="green">#7BD321</color>
     <color name="black">#000000</color>
     <color name="nail_header_back">#F0F0F0</color>
+    <color name="tab_details_color">#7F7F7F</color>
+    <color name="chat_back">#FF96AA</color>
+    <color name="chat_purple">#FFCAD4</color>
 </resources>
