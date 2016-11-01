@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.choose_trending_looks.bread.BeardFragment;
+import com.chat.laptop.hivego.confirm_details.ConfirmationFragment;
 import com.chat.laptop.hivego.services.MenServicesData;
 import com.chat.laptop.hivego.services.MenServicesHolder;
 import com.chat.laptop.hivego.services.nailfragment.NailFragment;
@@ -67,10 +68,10 @@ public class StyleListAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHol
             public void onClick(View view) {
 
 
-                BeardFragment salonListFragment = new BeardFragment();
+                ConfirmationFragment ConfirmationFragment = new ConfirmationFragment();
                 FragmentManager fragmentManager = ((AppCompatActivity) context).getSupportFragmentManager();
                 android.support.v4.app.FragmentTransaction search_fragmentTransaction = fragmentManager.beginTransaction();
-                search_fragmentTransaction.replace(R.id.frame, salonListFragment);
+                search_fragmentTransaction.replace(R.id.frame, ConfirmationFragment);
                 search_fragmentTransaction.addToBackStack(null);
                 search_fragmentTransaction.commit();
 

@@ -27,6 +27,8 @@ import android.widget.Toast;
 
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.appointments.my_appointment.MyAppointmentFragment;
+import com.chat.laptop.hivego.blog.BlogFragment;
+import com.chat.laptop.hivego.chat.ChatWithusFragment;
 import com.chat.laptop.hivego.dashboard.fragment.GenderFragment;
 import com.chat.laptop.hivego.edit_profile.EditProfileFragment;
 import com.chat.laptop.hivego.invite_friends.InviteFriendsFragment;
@@ -64,8 +66,6 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
     RelativeLayout header;
     CircleImageView circleImageViewProfilePic;
     TextView textViewName;
-
-
     private GenderFragment genderFragment;
 
 
@@ -98,9 +98,7 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
 
         header = (RelativeLayout) view.findViewById(R.id.header);
 
-
         adapter = new RecyclerAdapterDrawer(context, list);
-
 
         adapter.setClickListner(this);
 
@@ -112,9 +110,6 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
 
         recyclerView.setNestedScrollingEnabled(true);
 
-
-
-
     }
 
 
@@ -123,34 +118,30 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
     {
         List<RowDataDrawer> list = new ArrayList<>();
 
-        String title[] = {"USER PROFILE","BOOK APPOINTMENT","MANAGE APPOINTMENT", "ARTICLES", "INVITE FRIENDS", "CHAT WITH US","FEEDBACK","ABOUT HIVEGO"};
+        String title[] = {"USER PROFILE","BOOK APPOINTMENT","MANAGE APPOINTMENT", "ARTICLES", "INVITE FRIENDS", "CHAT WITH US","FEEDBACK","ABOUT HIVEGO","BLOG"};
 
         int drawableId[];
-
-
 
         for (int i = 0; i < title.length; i++)
         {
             RowDataDrawer current = new RowDataDrawer();
             current.text = title[i];
-
             list.add(current);
-
         }
-
-
 
         Log.i("TAG count", list.size() + "");
         return list;
     }
 
 
-    public static void openDrawer() {
+    public static void openDrawer()
+    {
 
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         context = getActivity();
         mUserLearnedDrawer = Boolean.valueOf(readFromPreferences(getActivity(), userKey, "false"));
@@ -159,18 +150,22 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
         }
     }
 
-    public void setup(int id, final DrawerLayout drawer, Toolbar toolbar) {
+    public void setup(int id, final DrawerLayout drawer, Toolbar toolbar)
+    {
         view = getActivity().findViewById(id);
 
         mDrawerLayout = drawer;
         mDrawerToggle = new ActionBarDrawerToggle(getActivity(), drawer, toolbar, R.string.drawer_open, R
-                .string.drawer_close) {
+                .string.drawer_close)
+        {
             @Override
-            public void onDrawerOpened(View drawerView) {
+            public void onDrawerOpened(View drawerView)
+            {
                 hideSoftKeyboard(getActivity());
 
                 super.onDrawerOpened(drawerView);
-                if (!mUserLearnedDrawer) {
+                if (!mUserLearnedDrawer)
+                {
                     mUserLearnedDrawer = true;
                     savedInstances(getActivity(), userKey, mUserLearnedDrawer + "");
                 }
@@ -178,7 +173,8 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
             }
 
             @Override
-            public void onDrawerClosed(View drawerView) {
+            public void onDrawerClosed(View drawerView)
+            {
                 super.onDrawerClosed(drawerView);
                 getActivity().invalidateOptionsMenu();
 
@@ -198,7 +194,8 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState)
+    {
         super.onActivityCreated(savedInstanceState);
         mDrawerLayout.closeDrawers();
 
@@ -209,14 +206,16 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
         super.onSaveInstanceState(outState);
     }
 
-    public static void savedInstances(Context context, String preferenceName, String preferenceValue) {
+    public static void savedInstances(Context context, String preferenceName, String preferenceValue)
+    {
         SharedPreferences sharePreference = context.getSharedPreferences(preFile, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharePreference.edit();
         editor.putString(preferenceName, preferenceValue);
         editor.apply();
     }
 
-    public static String readFromPreferences(Context context, String preferenceName, String defaultValue) {
+    public static String readFromPreferences(Context context, String preferenceName, String defaultValue)
+    {
         SharedPreferences sharePreference = context.getSharedPreferences(preFile, Context.MODE_PRIVATE);
         return sharePreference.getString(preferenceName, defaultValue);
     }
@@ -286,9 +285,9 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
                     break;
                 case 5:
 
-                    InviteFriendsFragment inviteFriendsFragment2 = new InviteFriendsFragment();
+                    ChatWithusFragment chatWithusFragment = new ChatWithusFragment();
                     android.support.v4.app.FragmentTransaction post_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    post_fragmentTransaction.replace(R.id.frame, inviteFriendsFragment2);
+                    post_fragmentTransaction.replace(R.id.frame, chatWithusFragment);
                     post_fragmentTransaction.addToBackStack(null);
                     post_fragmentTransaction.commit();
 
@@ -305,6 +304,17 @@ public class NavigationFragment extends Fragment implements RecyclerAdapterDrawe
                     break;
                 case 7:
 
+
+
+                    break;
+
+                case 8:
+
+                    BlogFragment blogFragment = new BlogFragment();
+                    android.support.v4.app.FragmentTransaction blog_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    blog_fragmentTransaction.replace(R.id.frame, blogFragment);
+                    blog_fragmentTransaction.addToBackStack(null);
+                    blog_fragmentTransaction.commit();
 
                     break;
 

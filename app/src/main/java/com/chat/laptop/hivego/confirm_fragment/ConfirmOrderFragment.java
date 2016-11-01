@@ -32,12 +32,13 @@ public class ConfirmOrderFragment extends Fragment implements View.OnClickListen
 {
 
     Button applyButton,earlyBirdButton,payButton;
-    TextView toolbar_title_txt;
+    TextView toolbar_title_txt,discount_rupees,total_payable_rupees,discount_rupees_symbol,total_payable_rupees_symbol;
     LinearLayout linearlayout;
     EditText editText;
     RecyclerView confirm_recyclerview;
     ConfirmOrderAdapter confirmServicesAdapter;
     public static ArrayList<ConfirmOrderData> confirmOrderDatas = new ArrayList<>();
+
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -67,6 +68,14 @@ public class ConfirmOrderFragment extends Fragment implements View.OnClickListen
         linearlayout = (LinearLayout) view.findViewById(R.id.enterCodelayout);
 
         editText = (EditText) view.findViewById(R.id.discountEdittext);
+
+        discount_rupees = (TextView) view.findViewById(R.id.discount_rupees);
+
+        discount_rupees_symbol = (TextView) view.findViewById(R.id.discount_rupees_symbol);
+
+        total_payable_rupees = (TextView)  view.findViewById(R.id.total_payable_rupees);
+
+        total_payable_rupees_symbol = (TextView) view.findViewById(R.id.total_payable_rupees_symbol);
 
     }
 
@@ -109,7 +118,8 @@ public class ConfirmOrderFragment extends Fragment implements View.OnClickListen
 
     }
 
-    private void setup_font(View view) {
+    private void setup_font(View view)
+    {
 
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Lato-Regular.ttf");
         toolbar_title_txt.setTypeface(tf);
@@ -121,20 +131,26 @@ public class ConfirmOrderFragment extends Fragment implements View.OnClickListen
     {
         switch (view.getId())
         {
-
-
             case R.id.applyButton:
+
                 applyButton.setVisibility(View.GONE);
                 editText.setVisibility(View.GONE);
                 earlyBirdButton.setVisibility(View.VISIBLE);
+                discount_rupees.setTextColor(getResources().getColor(R.color.green));
+                total_payable_rupees.setTextColor(getResources().getColor(R.color.green));
+                total_payable_rupees_symbol.setTextColor(getResources().getColor(R.color.green));
+                discount_rupees_symbol.setTextColor(getResources().getColor(R.color.green));
+
                 break;
 
             case R.id.earlyBirdButton:
+
                 earlyBirdButton.setVisibility(View.GONE);
                 editText.setVisibility(View.VISIBLE);
                 applyButton.setVisibility(View.VISIBLE);
-                break;
 
+
+                break;
             case R.id.payButton:
 
                 PaymentFragment salonListFragment = new PaymentFragment();

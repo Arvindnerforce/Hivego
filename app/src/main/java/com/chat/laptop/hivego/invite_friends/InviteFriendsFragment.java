@@ -1,6 +1,7 @@
 package com.chat.laptop.hivego.invite_friends;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,10 +19,8 @@ import com.chat.laptop.hivego.dashboard.fragment.GenderFragment;
 public class InviteFriendsFragment extends Fragment implements View.OnClickListener
 {
 
-
-
     TextView toolbar_title_txt;
-    Button post_invite_button;
+    Button post_invite_button,invite_button;
 
 
     @Override
@@ -29,9 +28,7 @@ public class InviteFriendsFragment extends Fragment implements View.OnClickListe
     {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_invite_friends, container, false);
-
         setuptoolbar();
-
         setup_layout(view);
         return  view;
     }
@@ -40,8 +37,11 @@ public class InviteFriendsFragment extends Fragment implements View.OnClickListe
     {
         post_invite_button = (Button) view.findViewById(R.id.post_invite_button);
 
-        post_invite_button.setOnClickListener(this);
+        invite_button = (Button) view.findViewById(R.id.invite_button);
 
+        invite_button.setOnClickListener(this);
+
+        post_invite_button.setOnClickListener(this);
     }
 
 
@@ -52,13 +52,11 @@ public class InviteFriendsFragment extends Fragment implements View.OnClickListe
         toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
 
         toolbar_title_txt.setText("INVITE FRIENDS");
-
     }
 
 
     public  void onClick(View v)
     {
-
         switch (v.getId())
         {
 
@@ -68,9 +66,15 @@ public class InviteFriendsFragment extends Fragment implements View.OnClickListe
                 message_fragmentTransaction.replace(R.id.frame, pastInviteFragment);
                 message_fragmentTransaction.addToBackStack(null);
                 message_fragmentTransaction.commit();
-
-
                 break;
+
+            case R.id.invite_button:
+                String shareBody = "Ibet... app for football lover";
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.app_name)));
 
         }
 

@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,15 +28,16 @@ public class GenderFragment extends Fragment
     ImageView check_male_image,check_female_image;
     int isClicked =  0,womanisClicked = 0;
     MaterialDialog  dailog;
-
+    TextView toolbar_title_txt;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
 
-
         View view= inflater.inflate(R.layout.fragment_gender, container, false);
+
+        setuptoolbar();
 
         menButton = (ImageButton) view.findViewById(R.id.men_image);
 
@@ -51,9 +53,14 @@ public class GenderFragment extends Fragment
             public void onClick(View view)
             {
 
-                if (isClicked == 0) {
+                if (isClicked == 0)
+                {
                     check_male_image.setVisibility(View.VISIBLE);
-                    showDialog();
+                    SearchCityFragment searchCityFragment = new SearchCityFragment();
+                    android.support.v4.app.FragmentTransaction search_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    search_fragmentTransaction.replace(R.id.frame, searchCityFragment);
+                    search_fragmentTransaction.addToBackStack(null);
+                    search_fragmentTransaction.commit();
                     isClicked = 1;
                 }
                 else
@@ -73,7 +80,11 @@ public class GenderFragment extends Fragment
 
                 if (womanisClicked == 0) {
                     check_female_image.setVisibility(View.VISIBLE);
-                    showDialog();
+                    SearchCityFragment searchCityFragment = new SearchCityFragment();
+                    android.support.v4.app.FragmentTransaction search_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    search_fragmentTransaction.replace(R.id.frame, searchCityFragment);
+                    search_fragmentTransaction.addToBackStack(null);
+                    search_fragmentTransaction.commit();
                     womanisClicked = 1;
                 }
                 else
@@ -161,11 +172,7 @@ public class GenderFragment extends Fragment
                 {
 
                     dialog.dismiss();
-                    SearchCityFragment searchCityFragment = new SearchCityFragment();
-                    android.support.v4.app.FragmentTransaction search_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    search_fragmentTransaction.replace(R.id.frame, searchCityFragment);
-                    search_fragmentTransaction.addToBackStack(null);
-                    search_fragmentTransaction.commit();
+
 
                 }
             });
@@ -176,4 +183,14 @@ public class GenderFragment extends Fragment
 
 
 
+    private void setuptoolbar()
+    {
+
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+
+        toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
+
+        toolbar_title_txt.setText("DATE & TIME ");
+
+    }
 }

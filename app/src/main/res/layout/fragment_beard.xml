@@ -16,10 +16,11 @@
 
 
     <RelativeLayout
+        android:id="@+id/short_layout"
         android:layout_width="220dp"
         android:layout_height="0dp"
         android:layout_weight="40"
-        android:background="@drawable/ic_men_beard"
+
         android:layout_gravity="center_horizontal"
 
         >
@@ -55,10 +56,11 @@
 
 
     <RelativeLayout
+        android:id="@+id/long_layout"
         android:layout_width="220dp"
         android:layout_height="0dp"
         android:layout_weight="40"
-        android:background="@drawable/ic_men_long_beard"
+
         android:layout_gravity="center_horizontal"
         >
 

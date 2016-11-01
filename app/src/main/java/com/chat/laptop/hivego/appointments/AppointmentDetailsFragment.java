@@ -166,10 +166,10 @@ public class AppointmentDetailsFragment extends Fragment implements View.OnClick
 
 
             case R.id.cancelButton:
-                MyAppointmentFragment manageCancelAppointmentFragment = new MyAppointmentFragment();
+                CancelAppointmentFragment cancelAppointmentFragment = new CancelAppointmentFragment();
                 FragmentManager fragmentManager2 = ((AppCompatActivity) getActivity()).getSupportFragmentManager();
                 android.support.v4.app.FragmentTransaction search_fragmentTransaction2 = fragmentManager2.beginTransaction();
-                search_fragmentTransaction2.replace(R.id.frame, manageCancelAppointmentFragment);
+                search_fragmentTransaction2.replace(R.id.frame, cancelAppointmentFragment);
                 search_fragmentTransaction2.addToBackStack(null);
                 search_fragmentTransaction2.commit();
                 break;
