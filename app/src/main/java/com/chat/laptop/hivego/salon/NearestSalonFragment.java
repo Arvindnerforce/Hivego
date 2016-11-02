@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.support.v4.app.Fragment;
 import com.chat.laptop.hivego.R;
 
+import com.chat.laptop.hivego.services.MenServicesData;
+import com.chat.laptop.hivego.services.MenServicesFragment;
 import com.chat.laptop.hivego.tutorial.ViewPagerAdapter;
 
 
@@ -76,9 +78,9 @@ public class NearestSalonFragment extends Fragment implements ViewPager.OnPageCh
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SalonListFragment salonListFragment = new SalonListFragment();
+                MenServicesFragment menServicesFragment = new MenServicesFragment();
                 android.support.v4.app.FragmentTransaction search_fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                search_fragmentTransaction.replace(R.id.frame, salonListFragment);
+                search_fragmentTransaction.replace(R.id.frame, menServicesFragment);
                 search_fragmentTransaction.addToBackStack(null);
                 search_fragmentTransaction.commit();
             }

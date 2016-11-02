@@ -102,9 +102,9 @@ public class ConfirmOrderFragment extends Fragment implements View.OnClickListen
         }
         catch (Exception ex) {
         }
-        confirmOrderDatas.add(new ConfirmOrderData("hair_care","","HAIR CARE"));
-        confirmOrderDatas.add(new ConfirmOrderData("face", "", "FACE"));
-        confirmOrderDatas.add(new ConfirmOrderData("mackup", "", "MAKEUP"));
+        confirmOrderDatas.add(new ConfirmOrderData("Crystal Spa Manicure","","600"));
+        confirmOrderDatas.add(new ConfirmOrderData("Crystal Spa Manicure", "", "1200"));
+        confirmOrderDatas.add(new ConfirmOrderData("Crystal Spa Manicure", "", "600"));
 
     }
 

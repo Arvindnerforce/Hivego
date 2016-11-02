@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.services.nailfragment.NailFragment;
+import com.chat.laptop.hivego.services.services_tab.ServicesTabFragment;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -65,11 +66,13 @@ public class MenServicesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         homeHolder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                NailFragment salonListFragment = new NailFragment();
+            public void onClick(View view)
+            {
+
+                ServicesTabFragment servicesTabFragment = new ServicesTabFragment();
                 FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
                 android.support.v4.app.FragmentTransaction search_fragmentTransaction = fragmentManager.beginTransaction();
-                search_fragmentTransaction.replace(R.id.frame, salonListFragment);
+                search_fragmentTransaction.replace(R.id.frame, servicesTabFragment);
                 search_fragmentTransaction.addToBackStack(null);
                 search_fragmentTransaction.commit();
 
