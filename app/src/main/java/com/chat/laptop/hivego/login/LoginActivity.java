@@ -9,15 +9,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.introduction.DefaultIntro;
 import com.chat.laptop.hivego.registration.RegistrationActivity;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements  View.OnClickListener{
 
     Button createAccount,loginButton;
+    LinearLayout facebookLogin;
     TextView facebook_txt,google_txt,haveAccount_txt,tems_txt;
 
     @Override
@@ -33,9 +35,8 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void setup_layout() {
-
-
+    private void setup_layout()
+    {
 
         facebook_txt = (TextView) findViewById(R.id.facebookTxt);
 
@@ -48,6 +49,8 @@ public class LoginActivity extends AppCompatActivity {
         createAccount = (Button) findViewById(R.id.createAccount);
 
         loginButton = (Button) findViewById(R.id.loginButton);
+
+        facebookLogin = (LinearLayout) findViewById(R.id.facebookLogin);
 
         createAccount.setOnClickListener(new View.OnClickListener()
         {
@@ -67,6 +70,9 @@ public class LoginActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.enter, R.anim.exit);
             }
         });
+
+
+
     }
 
     private void setup_font() {
@@ -105,4 +111,16 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+
+            case R.id.facebookLogin:
+
+
+
+                break;
+
+        }
+    }
 }

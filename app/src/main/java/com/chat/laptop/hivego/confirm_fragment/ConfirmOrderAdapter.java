@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.chat.laptop.hivego.R;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class ConfirmOrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private static final int SIMPLE_TYPE = 0;
     private static final int IMAGE_TYPE = 1;
     private final LayoutInflater inflater;
+    ArrayList<Integer> values=new ArrayList<>();
     private List<ConfirmOrderData> itemList;
     private Context context;
     ConfirmOrderHolder viewHolder;
@@ -40,6 +42,22 @@ public class ConfirmOrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         View view = inflater.inflate(R.layout.row_confirm_order, parent, false);
         viewHolder = new ConfirmOrderHolder(view);
 
+
+        try
+        {
+            values.clear();
+        }
+        catch (Exception ex)
+        {
+
+        }
+
+
+        for(int i=0;i<itemList.size();i++)
+        {
+            values.add(1);
+        }
+
         return viewHolder;
     }
 
@@ -47,7 +65,44 @@ public class ConfirmOrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position)
     {
 
-        ConfirmOrderHolder homeHolder = (ConfirmOrderHolder) holder;
+        viewHolder.textView_service_name.setText(itemList.get(position).service_name);
+
+        viewHolder.textView_service_total_price.setText(itemList.get(position).total_service_product);
+
+        //  viewHolder.services_value.setText(values.get(position).toString());
+
+        viewHolder.increament_Service.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+
+                values.set(position, values.get(position) + 1);
+                viewHolder.textView_services_value.setText(values.get(position).toString());
+                notifyDataSetChanged();
+                Toast.makeText(context, "clicked increment:"+values.get(position).toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+        viewHolder.decreament_Service.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Toast.makeText(context, "clicked decrement:"+position, Toast.LENGTH_SHORT).show();
+                if(values.get(position) > 0) {
+
+                    values.set(position, values.get(position) - 1);
+                    viewHolder.textView_services_value.setText(values.get(position).toString());
+                    notifyDataSetChanged();
+
+                }
+
+            }
+        });
+
 
 
        /* homeHolder.nail_linearlayout.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +125,7 @@ public class ConfirmOrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     private void showMessage(String s) {
+
         Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
     }
 

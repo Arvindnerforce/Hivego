@@ -50,7 +50,6 @@
                   android:textColor="@color/black"
                   android:text="@string/offer_data"
                   android:layout_centerHorizontal="true"
-
                   />
 
               <Button
@@ -59,7 +58,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:padding="15dp"
-                  android:text="LOG IN"
+                  android:text="INVITE YOUR PHONE CONTACTS"
                   android:layout_marginTop="30dp"
                   android:layout_marginLeft="20dp"
                   android:layout_marginRight="20dp"

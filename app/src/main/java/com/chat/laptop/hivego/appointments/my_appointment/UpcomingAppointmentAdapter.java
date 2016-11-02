@@ -37,7 +37,7 @@ public class UpcomingAppointmentAdapter extends RecyclerView.Adapter<RecyclerVie
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
 
-        View view = inflater.inflate(R.layout.row_my_appointment, parent, false);
+        View view = inflater.inflate(R.layout.row_upcoming_appointment, parent, false);
         viewHolder = new UpcomingAppointmentHolder(view);
 
 

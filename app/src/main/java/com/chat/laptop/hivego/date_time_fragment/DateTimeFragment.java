@@ -30,8 +30,8 @@ public class DateTimeFragment extends Fragment implements View.OnClickListener,T
     WrapContentViewPager viewPager;
     TabLayout tabLayout;
     MaterialFavoriteButton post_material_button,previos_material_button;
-
     TextView toolbar_title_txt,month_txt,month_txt_disable;
+
 
     private int[] tabIcons =
             {
@@ -65,6 +65,12 @@ public class DateTimeFragment extends Fragment implements View.OnClickListener,T
 
         month_txt.setOnClickListener((View.OnClickListener) this);
 
+        String current_date = new SimpleDateFormat("MMMM-dd-yyyy").format(new Date());
+
+        String date_txt = current_date.substring(0,current_date.length()-5);
+
+        month_txt.setText(date_txt);
+
         month_txt_disable.setOnClickListener(((View.OnClickListener) this));
 
         previos_material_button.setOnFavoriteChangeListener(
@@ -79,10 +85,13 @@ public class DateTimeFragment extends Fragment implements View.OnClickListener,T
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
-                        c.add(Calendar.DATE, 1);  // number of days to add, can also use Calendar.DAY_OF_MONTH in place of Calendar.DATE
+                        c.add(Calendar.DATE, -1);  // number of days to add, can also use Calendar.DAY_OF_MONTH in place of Calendar.DATE
                         SimpleDateFormat sdf1 = new SimpleDateFormat("MMMM-dd-yyyy");
                         String output = sdf1.format(c.getTime());
-                        month_txt.setText(output);
+
+                        String date_txt = output.substring(0, output.length() - 5);
+
+                        month_txt.setText(date_txt);
 
                         month_txt_disable.setText(output);
 
@@ -107,7 +116,9 @@ public class DateTimeFragment extends Fragment implements View.OnClickListener,T
                         c.add(Calendar.DATE, 1);  // number of days to add, can also use Calendar.DAY_OF_MONTH in place of Calendar.DATE
                         SimpleDateFormat sdf1 = new SimpleDateFormat("MMMM-dd-yyyy");
                         String output = sdf1.format(c.getTime());
-                        month_txt.setText(output);
+                        String date_txt = output.substring(0, output.length() - 5);
+
+                        month_txt.setText(date_txt);
 
                         month_txt_disable.setText(output);
 

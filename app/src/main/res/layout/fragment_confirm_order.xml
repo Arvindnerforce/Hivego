@@ -98,7 +98,7 @@
             >
 
             <TextView
-
+                android:id="@+id/discount_rupees_symbol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="₹"
@@ -108,7 +108,7 @@
                 android:layout_marginRight="5dp"
                 />
             <TextView
-
+               android:id="@+id/discount_rupees"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1200"
@@ -223,7 +223,7 @@
             >
 
             <TextView
-
+                android:id="@+id/total_payable_rupees_symbol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="₹"
@@ -232,6 +232,7 @@
                 android:layout_marginRight="5dp"
                 />
             <TextView
+                android:id="@+id/total_payable_rupees"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1200"
@@ -246,7 +247,7 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -330,7 +331,7 @@
             />
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

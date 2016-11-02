@@ -61,7 +61,7 @@
             android:id="@+id/men_image"
             android:layout_width="220dp"
             android:layout_height="220dp"
-            android:background="@drawable/male"
+            android:background="@drawable/mele"
             android:layout_centerHorizontal="true"
             />
 

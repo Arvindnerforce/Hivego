@@ -12,18 +12,24 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar_layout" />
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        >
     <TextView
         android:id="@+id/tittleTxt"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MAKE SURE YOUR INFORMTION IS CORRECT BEFORE CONTINUING"
         android:layout_marginTop="20dp"
         android:textColor="#000000"
-       android:gravity="center_horizontal"
+        android:gravity="center_horizontal"
         />
 
     <TextView
+        android:id="@+id/couter_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="00:30"
@@ -40,64 +46,92 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:weightSum="8"
+        android:weightSum="12"
         android:orientation="horizontal"
         >
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"></LinearLayout>
 
         <EditText
+            android:id="@+id/editText1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:background="@drawable/google_button_background"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:inputType="text"
+            android:padding="13dp"
+            android:inputType="number"
             android:hint=""
+            android:maxLength="1"
+            android:singleLine="true"
+            android:textSize="18sp"
             android:layout_marginRight="5dp"
+
             android:layout_marginLeft="5dp"
+            android:imeOptions="actionNext"
             />
 
         <EditText
+            android:id="@+id/editText2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:background="@drawable/google_button_background"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:inputType="text"
+            android:padding="13dp"
+            android:inputType="number"
             android:hint=""
+            android:maxLength="1"
+            android:textSize="18sp"
+            android:singleLine="true"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
+
+            android:imeOptions="actionNext"
             />
 
 
         <EditText
+            android:id="@+id/editText3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:background="@drawable/google_button_background"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:inputType="text"
+            android:padding="13dp"
+            android:inputType="number"
             android:hint=""
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
+            android:maxLength="1"
+            android:singleLine="true"
+
+            android:textSize="18sp"
+            android:imeOptions="actionNext"
             />
 
 
         <EditText
+            android:id="@+id/editText4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:background="@drawable/google_button_background"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:inputType="text"
+            android:inputType="number"
+            android:maxLength="1"
+            android:padding="13dp"
+            android:singleLine="true"
             android:hint=""
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
+            android:textSize="18sp"
+            android:imeOptions="actionDone"
             />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"></LinearLayout>
 
     </LinearLayout>
 
@@ -153,5 +187,7 @@
 
 
     </LinearLayout>
+    </LinearLayout>
+
 
 </LinearLayout>

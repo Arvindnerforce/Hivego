@@ -42,10 +42,10 @@ public class TrendingLooksFragment extends Fragment
             @Override
             public void onClick(View view)
             {
-                ChooseStyleFragment chooseStyleFragment = new ChooseStyleFragment();
+                BeardFragment beardFragment = new BeardFragment();
                 FragmentManager fragmentManager = ((AppCompatActivity)getActivity()).getSupportFragmentManager();
                 android.support.v4.app.FragmentTransaction search_fragmentTransaction = fragmentManager.beginTransaction();
-                search_fragmentTransaction.replace(R.id.frame, chooseStyleFragment);
+                search_fragmentTransaction.replace(R.id.frame, beardFragment);
                 search_fragmentTransaction.addToBackStack(null);
                 search_fragmentTransaction.commit();
             }
