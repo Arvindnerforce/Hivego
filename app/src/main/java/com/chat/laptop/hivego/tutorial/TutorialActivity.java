@@ -58,8 +58,8 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
     }
 
 
-    public void setReference() {
-
+    public void setReference()
+    {
         intro_images = (ViewPager) findViewById(R.id.pager_introduction);
 
         pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
@@ -71,7 +71,8 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
         setUiPageViewController();
     }
 
-    private void setUiPageViewController() {
+    private void setUiPageViewController()
+    {
 
         dotsCount = mAdapter.getCount();
         dots = new ImageView[dotsCount];

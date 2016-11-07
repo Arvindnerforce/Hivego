@@ -14,12 +14,15 @@ import android.widget.TextView;
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.appointments.AppointmentDetailsFragment;
 import com.chat.laptop.hivego.thankyou.ThankyouFragment;
+import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 
 
-public class PaymentFragment extends Fragment implements View.OnClickListener{
+public class PaymentFragment extends Fragment implements View.OnClickListener
+{
 
     Button payButton;
     TextView toolbar_title_txt;
+    MaterialFavoriteButton payonline_material_button,payment_salon_material_button;
 
 
     @Override
@@ -40,7 +43,44 @@ public class PaymentFragment extends Fragment implements View.OnClickListener{
 
         payButton = (Button) view.findViewById(R.id.payButton);
 
+        payonline_material_button = (MaterialFavoriteButton) view.findViewById(R.id.payonline_material_button);
+
+        payment_salon_material_button = (MaterialFavoriteButton) view.findViewById(R.id.payment_salon_material_button);
+
         payButton.setOnClickListener(this);
+
+
+        payonline_material_button.setOnFavoriteChangeListener(
+                        new MaterialFavoriteButton.OnFavoriteChangeListener()
+                        {
+                            @Override
+                            public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite)
+                            {
+
+                                System.out.println("payment option ===========" + favorite);
+                                if (favorite == true)
+                                {
+
+                                    payment_salon_material_button.setFavorite(false);
+                                }
+
+                            }
+                        });
+
+        payment_salon_material_button.setOnFavoriteChangeListener(
+                new MaterialFavoriteButton.OnFavoriteChangeListener() {
+                    @Override
+                    public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite)
+                    {
+
+                        System.out.println("payment option ==========="+ favorite);
+                        if(favorite== true){
+
+                            payonline_material_button.setFavorite(false);
+                        }
+
+                    }
+                });
 
     }
 
