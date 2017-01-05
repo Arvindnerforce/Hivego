@@ -32,8 +32,7 @@ public class AppointmentDetailsFragment extends Fragment implements View.OnClick
     RecyclerView  manage_appointment_recyclerview;
     AppointmentDetailsAdapter manageAppointmentAdapter;
     Button trendingButton,callusButton,navigateButton,cancelButton,scheduleButton;
-    TextView toolbar_title_txt,title_txt,prepaid_txt,salon_heading,salon_name,salon_address,customer_name_heading,booking_name_heading
-            ,sex_name_heading,time_name_heading,customer_name_txt,booking_id_txt,sex_txt,user_time_txt,date_heading,date_txt,time_txt;
+    TextView toolbar_title_txt,title_txt,prepaid_txt,salon_heading,salon_name,salon_address,customer_name_heading,booking_name_heading,sex_name_heading,time_name_heading,customer_name_txt,booking_id_txt,sex_txt,user_time_txt,date_heading,date_txt,time_txt;
 
 
 

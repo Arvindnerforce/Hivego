@@ -25,12 +25,12 @@ import java.util.ArrayList;
 
 public class NailFragment extends Fragment
 {
-
     RecyclerView nail_recyclerview;
     TextView toolbar_title_txt;
     NailAdapter nailAdapter;
     Button search_button;
     public static ArrayList<NailData> nailServicesData = new ArrayList<>();
+
 
 
     @Override

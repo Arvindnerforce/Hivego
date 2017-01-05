@@ -64,8 +64,6 @@ public class ChooseDateAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         homeHolder.time_name.setText(itemList.get(position).price.toString());
 
-
-
         homeHolder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
