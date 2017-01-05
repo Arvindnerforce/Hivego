@@ -19,7 +19,8 @@ public class ConfirmOrderHolder extends RecyclerView.ViewHolder {
     Button decreament_Service,increament_Service;
     RelativeLayout relativeLayout;
 
-    public ConfirmOrderHolder(View itemView) {
+    public ConfirmOrderHolder(View itemView)
+    {
         super(itemView);
 
         relativeLayout = (RelativeLayout) itemView.findViewById(R.id.serviceLayout);

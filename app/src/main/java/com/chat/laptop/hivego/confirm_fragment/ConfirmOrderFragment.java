@@ -131,8 +131,8 @@ public class ConfirmOrderFragment extends Fragment implements View.OnClickListen
     {
         switch (view.getId())
         {
-            case R.id.applyButton:
 
+            case R.id.applyButton:
                 applyButton.setVisibility(View.GONE);
                 editText.setVisibility(View.GONE);
                 earlyBirdButton.setVisibility(View.VISIBLE);
@@ -140,17 +140,15 @@ public class ConfirmOrderFragment extends Fragment implements View.OnClickListen
                 total_payable_rupees.setTextColor(getResources().getColor(R.color.green));
                 total_payable_rupees_symbol.setTextColor(getResources().getColor(R.color.green));
                 discount_rupees_symbol.setTextColor(getResources().getColor(R.color.green));
-
                 break;
 
             case R.id.earlyBirdButton:
-
                 earlyBirdButton.setVisibility(View.GONE);
                 editText.setVisibility(View.VISIBLE);
                 applyButton.setVisibility(View.VISIBLE);
 
-
                 break;
+
             case R.id.payButton:
 
                 PaymentFragment salonListFragment = new PaymentFragment();

@@ -26,12 +26,10 @@ import java.util.Date;
 public class DateTimeFragment extends Fragment implements View.OnClickListener,TimePickerDialog.OnTimeSetListener,DatePickerDialog.OnDateSetListener
 {
 
-
     WrapContentViewPager viewPager;
     TabLayout tabLayout;
     MaterialFavoriteButton post_material_button,previos_material_button;
     TextView toolbar_title_txt,month_txt,month_txt_disable;
-
 
     private int[] tabIcons =
             {
@@ -40,6 +38,8 @@ public class DateTimeFragment extends Fragment implements View.OnClickListener,T
             R.drawable.ic_moon,
             R.drawable.ic_moon
     };
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -187,9 +187,11 @@ public class DateTimeFragment extends Fragment implements View.OnClickListener,T
     }
 
 
-    public void onClick(View view) {
+    public void onClick(View view)
+    {
 
-        switch (view.getId()) {
+        switch (view.getId())
+        {
             case R.id.month_txt:
 
                 Calendar now = Calendar.getInstance();
@@ -223,9 +225,6 @@ public class DateTimeFragment extends Fragment implements View.OnClickListener,T
         }
 
     }
-
-
-
 
 
 

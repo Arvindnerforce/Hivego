@@ -54,8 +54,8 @@ public class DashboardActivity extends AppCompatActivity
 
     }
 
-    private void setup_font() {
-
+    private void setup_font()
+    {
         Typeface tf = Typeface.createFromAsset(this.getAssets(), "Lato-Regular.ttf");
         toolbar_title_txt.setTypeface(tf);
 

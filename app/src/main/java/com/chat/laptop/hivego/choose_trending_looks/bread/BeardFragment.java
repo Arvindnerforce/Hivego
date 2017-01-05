@@ -51,7 +51,7 @@ public class BeardFragment extends Fragment
 
         long_layout = (RelativeLayout) view.findViewById(R.id.long_layout);
 
-        Picasso.with(getActivity()).load(R.drawable.ic_men_beard).into(new Target(){
+        Picasso.with(getActivity()).load(R.drawable.ic_short_beard).into(new Target(){
 
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
@@ -70,7 +70,7 @@ public class BeardFragment extends Fragment
         });
 
 
-        Picasso.with(getActivity()).load(R.drawable.ic_men_long_beard).into(new Target(){
+        Picasso.with(getActivity()).load(R.drawable.ic_long_beard).into(new Target(){
 
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {

@@ -25,14 +25,11 @@ import java.util.ArrayList;
 
 public class NailFragment extends Fragment
 {
-
-
     RecyclerView nail_recyclerview;
     TextView toolbar_title_txt;
     NailAdapter nailAdapter;
     Button search_button;
     public static ArrayList<NailData> nailServicesData = new ArrayList<>();
-    public static ArrayList<NailData> servicesDetailData = new ArrayList<>();
 
 
 
@@ -53,7 +50,6 @@ public class NailFragment extends Fragment
     {
 
         nail_recyclerview = (RecyclerView) view.findViewById(R.id.recyclerView);
-
         search_button = (Button) view.findViewById(R.id.continueButton);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -77,6 +73,9 @@ public class NailFragment extends Fragment
 
             }
         });
+
+
+
     }
 
     private void setServicesData()

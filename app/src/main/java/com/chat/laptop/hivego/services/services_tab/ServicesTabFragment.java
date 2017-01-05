@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.date_time_fragment.CategoriesAdapter;
@@ -19,8 +22,8 @@ import com.chat.laptop.hivego.general.WrapContentViewPager;
 public class ServicesTabFragment extends Fragment
 {
 
-    WrapContentViewPager  viewPager;
-
+    ViewPager viewPager;
+    TabLayout tabLayout;
 
 
 
@@ -38,30 +41,21 @@ public class ServicesTabFragment extends Fragment
 
     private void setupViewPager(View view)
     {
+        viewPager = (ViewPager) view.findViewById(R.id.pager);
 
-        viewPager = (WrapContentViewPager) view.findViewById(R.id.pager);
-        viewPager.setPagingEnabled(true);
+         tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
 
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
+        tabLayout.addTab(tabLayout.newTab().setText("HAIR CARE"));
+        tabLayout.addTab(tabLayout.newTab().setText("FACE"));
+        tabLayout.addTab(tabLayout.newTab().setText("MAKEUP"));
+        tabLayout.addTab(tabLayout.newTab().setText("NAIL"));
+        tabLayout.addTab(tabLayout.newTab().setText("BODY"));
+        tabLayout.addTab(tabLayout.newTab().setText("MASSAGE AND SPA"));
+        tabLayout.addTab(tabLayout.newTab().setText("EXCLUSIVE OFFERS"));
 
-        tabLayout.addTab(tabLayout.newTab().setIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_morning)).setText("HAIR"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_afternoon)).setText("FACE"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_evening)).setText("MAKEUP"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_moon)).setText("BODY"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ic_moon)).setText("MASSAGE AND SPA"));
-
-        final int tabIconColor = ContextCompat.getColor(getActivity(), R.color.black);
-        final int tabIconSelectedColor = ContextCompat.getColor(getActivity(), R.color.colorPrimary);
-
-
-        tabLayout.getTabAt(0).getIcon().setColorFilter(tabIconSelectedColor, PorterDuff.Mode.SRC_IN);
-        tabLayout.getTabAt(1).getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
-        tabLayout.getTabAt(2).getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
-        tabLayout.getTabAt(3).getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        final CategoriesAdapter adapter = new CategoriesAdapter(getChildFragmentManager() , tabLayout.getTabCount());
+        final ServicesTabAdapter adapter = new ServicesTabAdapter(getChildFragmentManager() , tabLayout.getTabCount());
 
         viewPager.setAdapter(adapter);
 
@@ -74,15 +68,14 @@ public class ServicesTabFragment extends Fragment
             @Override
             public void onTabSelected(TabLayout.Tab tab)
             {
+
                 viewPager.setCurrentItem(tab.getPosition());
-                tab.getIcon().setColorFilter(tabIconSelectedColor, PorterDuff.Mode.SRC_IN);
 
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab)
             {
-                tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
 
             }
 

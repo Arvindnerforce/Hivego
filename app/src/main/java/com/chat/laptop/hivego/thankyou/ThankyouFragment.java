@@ -17,11 +17,11 @@ import com.chat.laptop.hivego.R;
 import com.chat.laptop.hivego.appointments.AppointmentDetailsFragment;
 
 
-public class ThankyouFragment extends Fragment implements View.OnClickListener {
+public class ThankyouFragment extends Fragment implements View.OnClickListener
+{
 
      Button seeDetails;
-    TextView toolbar_title_txt;
-
+     TextView toolbar_title_txt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -35,8 +35,8 @@ public class ThankyouFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-    private void setuptoolbar() {
-
+    private void setuptoolbar()
+    {
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
 
         toolbar.setVisibility(View.VISIBLE);
@@ -44,18 +44,14 @@ public class ThankyouFragment extends Fragment implements View.OnClickListener {
         toolbar_title_txt = (TextView) getActivity().findViewById(R.id.title_txt);
 
         toolbar_title_txt.setText("THANK YOU");
-
-
     }
 
 
-    private void setup_layout(View view) {
-
+    private void setup_layout(View view)
+    {
         seeDetails = (Button)view.findViewById(R.id.seeDetail_button);
 
         seeDetails.setOnClickListener(this);
-
-
     }
 
 
